@@ -495,7 +495,7 @@ export default function CourseInterestAssessment() {
               <RotateCcw className="mr-2 h-4 w-4" /> Retake Assessment
             </Button>
             <Button className="px-10 py-3 w-full sm:w-auto text-base font-semibold bg-[#8B0000] hover:bg-[#700000] text-white shadow-lg hover:shadow-xl transition-all rounded-lg">
-              
+              Apply Now
             </Button>
           </div>
         </div>

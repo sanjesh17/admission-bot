@@ -17,10 +17,10 @@ export default function AdmissionsSection() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-4 left-4 bg-white/80 p-2 rounded-full shadow">
-                <GraduationCap className="w-5 h-5 text-red-700" />
+                <GraduationCap className="w-5 h-5 text-[#831238]" />
               </div>
               <div className="absolute bottom-4 right-4 bg-white/80 p-2 rounded-full shadow">
-                <BookOpen className="w-5 h-5 text-red-700" />
+                <BookOpen className="w-5 h-5 text-[#831238]" />
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@ export default function AdmissionsSection() {
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
                 Admissions
               </h1>
-              <div className="w-20 h-1 bg-[#C10B4E] rounded"></div>
+              <div className="w-20 h-1 bg-[#831238] rounded"></div>
             </div>
 
             {/* Stats */}
@@ -56,11 +56,11 @@ export default function AdmissionsSection() {
             {/* Description */}
             <p className="text-gray-700 leading-relaxed bg-white rounded-lg p-4 border border-red-100">
               Sathyabama Institute of Science and Technology offers programs in{" "}
-              <span className="font-semibold text-red-800">Engineering</span>,{" "}
-              <span className="font-semibold text-red-800">Science</span>,{" "}
-              <span className="font-semibold text-red-800">Management</span>,
-              and <span className="font-semibold text-red-800">Research</span>,
-              with state-of-the-art facilities and industry collaboration.
+              <span className="font-semibold text-[#831238]">Engineering</span>,{" "}
+              <span className="font-semibold text-[#831238]">Science</span>,{" "}
+              <span className="font-semibold text-[#831238]">Management</span>,
+              and <span className="font-semibold text-[#831238]">Research</span>
+              , with state-of-the-art facilities and industry collaboration.
             </p>
 
             {/* Program Buttons */}
@@ -68,7 +68,7 @@ export default function AdmissionsSection() {
               {["Undergraduate", "Postgraduate", "Research"].map((label) => (
                 <button
                   key={label}
-                  className="flex items-center space-x-3 bg-white border border-red-200 px-6 py-3 rounded-xl hover:bg-[#C10B4E] hover:text-white transition-all duration-200 shadow-sm"
+                  className="flex items-center space-x-3 bg-white border border-red-200 px-6 py-3 rounded-xl hover:bg-[#831238] hover:text-white transition-all duration-200 shadow-sm"
                 >
                   <div className="w-9 h-9 bg-red-100 rounded-full flex items-center justify-center text-red-700 group-hover:text-white">
                     <ArrowRight className="w-4 h-4" />
@@ -79,7 +79,7 @@ export default function AdmissionsSection() {
             </div>
 
             {/* CTA Box */}
-            <div className="bg-[#C10B4E] text-white rounded-xl p-6 shadow">
+            <div className="bg-[#831238] text-white rounded-xl p-6 shadow">
               <p className="text-sm leading-relaxed">
                 Join thousands of students who have chosen Sathyabama for their
                 academic journey. Experience quality education and advanced
@@ -89,7 +89,7 @@ export default function AdmissionsSection() {
 
             {/* CTA Button */}
             <div>
-              <button className="bg-[#C10B4E] hover:bg-[#C10B4E]/90 text-white px-8 py-4 rounded-xl font-medium flex items-center space-x-3 transition-all duration-300 shadow-md hover:shadow-lg">
+              <button className="bg-[#831238] hover:bg-[#831238]/80 text-white px-8 py-4 rounded-xl font-medium flex items-center space-x-3 transition-all duration-300 shadow-md hover:shadow-lg">
                 <span className="text-base">Explore Admissions</span>
                 <ArrowRight className="w-5 h-5" />
               </button>

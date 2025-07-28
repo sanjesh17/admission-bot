@@ -9,10 +9,16 @@ const Navbar = () => {
         <Image src={Logo} alt="Sathyabama Logo" width={350} height={50} />
       </div>
       <div className="space-x-4">
-        <Button size="lg" className="bg-[#C10B4E] hover:bg-[#C10B4E]/90 rounded-xl">
+        <Button
+          size="lg"
+          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl"
+        >
           Apply Now
         </Button>
-        <Button size="lg" className="bg-[#C10B4E] hover:bg-[#C10B4E]/90 rounded-xl">
+        <Button
+          size="lg"
+          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl"
+        >
           Virtual Tour
         </Button>
       </div>

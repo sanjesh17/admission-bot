@@ -200,14 +200,14 @@ const ChatBot = () => {
       {!isOpen ? (
         <Button
           onClick={() => setIsOpen(true)}
-          className="rounded-full w-14 h-14 bg-[#800000] hover:bg-[#600000] animate-bounce shadow-lg"
+          className="rounded-full w-14 h-14 bg-[#831238] hover:bg-[#600000] animate-bounce shadow-lg"
           aria-label="Open chat"
         >
           <MessageCircle className="h-6 w-6" />
         </Button>
       ) : (
         <div className="w-[450px] h-[550px] flex flex-col bg-white shadow-xl rounded-lg overflow-hidden">
-          <div className="flex flex-row items-center justify-between bg-[#800000] text-white p-4">
+          <div className="flex flex-row items-center justify-between bg-[#831238] text-white p-4">
             <div className="flex items-center space-x-2">
               <GraduationCap className="h-5 w-5" />
               <h2 className="text-lg font-semibold">Sathyabama Assistant</h2>
@@ -245,7 +245,7 @@ const ChatBot = () => {
                   <div
                     className={`max-w-[85%] rounded-lg p-3 ${
                       message.type === 'user'
-                        ? 'bg-[#800000] text-white'
+                        ? 'bg-[#831238] text-white'
                         : 'bg-gray-100 text-gray-800'
                     }`}
                   >
@@ -299,13 +299,13 @@ const ChatBot = () => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Type your message..."
-                className="flex-1 rounded-md p-2 border focus:outline-none focus:ring-2 focus:ring-[#800000] text-sm"
+                className="flex-1 rounded-md p-2 border focus:outline-none focus:ring-2 focus:ring-[#831238] text-sm"
                 aria-label="Type your message"
                 disabled={isLoading}
               />
               <Button
                 onClick={handleSend}
-                className="bg-[#800000] hover:bg-[#600000]"
+                className="bg-[#831238] hover:bg-[#600000]"
                 aria-label="Send message"
                 disabled={isLoading}
               >

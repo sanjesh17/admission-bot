@@ -36,7 +36,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
 
         {/* Center Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+        {/* <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
           <div className="backdrop-blur-md bg-white/10 px-4 py-2 rounded-full text-xs sm:text-sm tracking-wide text-white border border-white/20 mb-4 shadow-sm">
             Sathyabama Institute of Science and Technology
           </div>
@@ -46,13 +46,13 @@ export default function Home() {
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl drop-shadow-sm">
             Empowering students to build a brighter, research-driven future.
           </p>
-        </div>
+        </div> */}
 
         {/* Scroll CTA */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
           <a
             href="#admissions"
-            className="inline-flex items-center gap-2 px-5 py-2 bg-white text-[#800000] font-medium rounded-full shadow-lg hover:bg-[#800000] hover:text-white transition-all duration-900 text-sm animate-bounce"
+            className="inline-flex items-center gap-2 px-5 py-2 bg-white text-[#831238] font-medium rounded-full shadow-lg hover:bg-[#831238] hover:text-white transition-all duration-900 text-sm animate-bounce"
           >
             ↓ Know More
           </a>
@@ -62,7 +62,6 @@ export default function Home() {
       <AdmissionsSection />
 
       <OfficialPrograms />
-
 
       {/* About Section */}
 

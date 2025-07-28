@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,8 +16,10 @@ import AdmissionsSection from "@/components/AdmissionSection";
 import PlacementStats from "@/components/PlacementStats";
 import OfficialPrograms from "@/components/OfficialPrograms";
 import AlertSlider from "@/components/AlertSlider";
+import withScrollFadeIn from "@/components/withScrollFadeIn";
+import { motion } from "framer-motion";
 
-export default function Home() {
+function Home() {
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
@@ -37,17 +40,37 @@ export default function Home() {
         <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
 
         {/* Center Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-          <div className="backdrop-blur-md bg-white/10 px-4 py-2 rounded-full text-sm sm:text-lg tracking-wide text-white border border-white/20 mb-4 shadow-sm">
+        <motion.div
+          className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          <motion.div
+            className="backdrop-blur-md bg-white/10 px-4 py-2 rounded-full text-sm sm:text-lg tracking-wide text-white border border-white/20 mb-4 shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             Sathyabama Institute of Science and Technology
-          </div>
-          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mb-4 drop-shadow-md">
+          </motion.div>
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mb-4 drop-shadow-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+          >
             Transforming Lives through Innovation
-          </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl drop-shadow-sm">
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl text-gray-200 max-w-2xl drop-shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+          >
             Empowering students to build a brighter, research-driven future.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Scroll CTA */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
@@ -267,3 +290,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default withScrollFadeIn(Home);

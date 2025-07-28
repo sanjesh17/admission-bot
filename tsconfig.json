@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "components/Navbar.tsx",
     "app/courses/computing/Carousel.jsx"
-  ],
+, "components/CoursePageTemplate.tsx", "components/withScrollFadeIn.tsx"  ],
   "exclude": ["node_modules"]
 }

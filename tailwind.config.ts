@@ -80,6 +80,10 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "infinite-scroll": "infinite-scroll 30s linear infinite",
       },
+      fontFamily: {
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
+        serif: ["'EB Garamond'", "serif"],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

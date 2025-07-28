@@ -1,19 +1,23 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ChatBot from '@/components/ChatBot';
-import StudentCounseling from '@/components/StudentCounseling';
-import Animations from './animations/page';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
+import StudentCounseling from "@/components/StudentCounseling";
+import Navbar from "@/components/Navbar";
+import Animations from "./animations/page";
+import Home from "./page";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Sathyabama Institute of Science and Technology',
-  description: 'A premier institution dedicated to excellence in education, research, and innovation',
-  keywords: 'Sathyabama University, Engineering, Technology, Research, Higher Education',
+  title: "Sathyabama Institute of Science and Technology",
+  description:
+    "A premier institution dedicated to excellence in education, research, and innovation",
+  keywords:
+    "Sathyabama University, Engineering, Technology, Research, Higher Education",
 };
 
 export default function RootLayout({

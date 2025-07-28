@@ -14,13 +14,14 @@ import Navbar from "@/components/Navbar";
 import AdmissionsSection from "@/components/AdmissionSection";
 import PlacementStats from "@/components/PlacementStats";
 import OfficialPrograms from "@/components/OfficialPrograms";
+import AlertSlider from "@/components/AlertSlider";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* Hero Section */}
       <Navbar />
-      <section className="relative h-[700px] overflow-hidden">
+      <section className="relative h-[900px] overflow-hidden">
         <video
           autoPlay
           muted
@@ -36,17 +37,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-black bg-opacity-60 z-0" />
 
         {/* Center Content */}
-        {/* <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-          <div className="backdrop-blur-md bg-white/10 px-4 py-2 rounded-full text-xs sm:text-sm tracking-wide text-white border border-white/20 mb-4 shadow-sm">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+          <div className="backdrop-blur-md bg-white/10 px-4 py-2 rounded-full text-sm sm:text-lg tracking-wide text-white border border-white/20 mb-4 shadow-sm">
             Sathyabama Institute of Science and Technology
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-4 drop-shadow-md">
+          <h1 className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight mb-4 drop-shadow-md">
             Transforming Lives through Innovation
           </h1>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl drop-shadow-sm">
             Empowering students to build a brighter, research-driven future.
           </p>
-        </div> */}
+        </div>
 
         {/* Scroll CTA */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
@@ -58,6 +59,8 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <AlertSlider />
 
       <AdmissionsSection />
 

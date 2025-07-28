@@ -2,26 +2,60 @@ import React from "react";
 import Link from "next/link";
 import { GraduationCap, BookOpen, Atom, Globe2 } from "lucide-react";
 
+// Updated programs array with slug information
 const programs = [
-  [
-    "School of Computing",
-    "School of Science & Humanities",
-    "School of Electrical and Electronics",
-    "School of Law",
-  ],
-  [
-    "School of Mechanical",
-    "School of Pharmacy",
-    "School of Bio and Chemical Engineering",
-    "School of Nursing",
-  ],
-  [
-    "School of Building and Environment",
-    "School of Physiotherapy",
-    "School of Dental Sciences",
-    "School of Management Studies",
-    "School of Allied Health Sciences",
-  ],
+  {
+    name: "School of Computing",
+    slug: "computing",
+  },
+  {
+    name: "School of Science & Humanities",
+    slug: "science-humanities",
+  },
+  {
+    name: "School of Electrical and Electronics",
+    slug: "electrical-electronics",
+  },
+  {
+    name: "School of Law",
+    slug: "law",
+  },
+  {
+    name: "School of Mechanical",
+    slug: "mechanical",
+  },
+  {
+    name: "School of Pharmacy",
+    slug: "pharmacy",
+  },
+  {
+    name: "School of Bio and Chemical Engineering",
+    slug: "bio-chemical",
+  },
+  {
+    name: "School of Nursing",
+    slug: "nursing",
+  },
+  {
+    name: "School of Building and Environment",
+    slug: "building-environment",
+  },
+  {
+    name: "School of Physiotherapy",
+    slug: "physiotherapy",
+  },
+  {
+    name: "School of Dental Sciences",
+    slug: "dental",
+  },
+  {
+    name: "School of Management Studies",
+    slug: "management",
+  },
+  {
+    name: "School of Allied Health Sciences",
+    slug: "allied-health",
+  },
 ];
 
 const icons = [<GraduationCap />, <Atom />, <BookOpen />, <Globe2 />];
@@ -41,20 +75,21 @@ const OfficialPrograms: React.FC = () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-20">
-          {programs.flat().map((program, idx) => (
-            <div
+          {programs.map((program, idx) => (
+            <Link
+              href={`/courses/${program.slug}`}
               key={idx}
-              className="flex items-start p-5 bg-[#831238] rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group hover:scale-[1.02] border border-gray-200 cursor-pointer"
+              className="flex items-start p-5 bg-[#831238] rounded-xl shadow-md hover:shadow-lg transition-all duration-200 group hover:scale-[1.02] border border-gray-200"
             >
               <div className="text-white mr-4 mt-1">
                 {icons[idx % icons.length]}
               </div>
               <div>
                 <h3 className="text-md font-medium text-white transition-colors duration-200">
-                  {program}
+                  {program.name}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

@@ -13,7 +13,7 @@ const programs = [
   },
   {
     name: "School of Science & Humanities",
-    slug: "science-humanities",
+    slug: "humanities",
     image:
       "https://www.sathyabama.ac.in/sites/default/files/styles/image_size_175_175_/public/2020-09/imgonline-com-ua-CompressToSize-cBpBylj97v0QZT.jpg?itok=lJ1vQNBJ",
   },

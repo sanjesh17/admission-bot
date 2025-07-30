@@ -5,7 +5,7 @@ import AboutDepartment from "./AboutDepartment";
 import DeanInfo from "../../../components/DeanInfo";
 import ProgramsOffered from "./ProgramsOffered";
 import TopRecruiters from "@/components/TopRecruiters";
-import CoursePageTemplate from "@/components/CoursePageTemplate";
+import CoursePageTemplate from "@/app/courses/computing/CoursePageTemplate";
 import withScrollFadeIn from "@/components/withScrollFadeIn";
 
 const page = () => {

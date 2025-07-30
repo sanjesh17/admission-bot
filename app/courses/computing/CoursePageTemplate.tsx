@@ -1,6 +1,31 @@
 import React from "react";
 import Image from "next/image";
-import TopRecruiters from "./TopRecruiters";
+import TopRecruiters from "../../../components/TopRecruiters";
+
+type CourseCardProps = {
+  program: string;
+  image: string;
+};
+
+const CourseCard = ({ program, image }: CourseCardProps) => {
+  return (
+    <div className="group w-fit cursor-pointer">
+      <div className="overflow-hidden">
+        <Image
+          src={image}
+          alt={program}
+          height={300}
+          width={300}
+          className="transition-transform duration-300 ease-in-out group-hover:scale-105"
+        />
+      </div>
+      <h1 className="text-xl font-inter font-semibold mt-4 text-[#831238] relative inline-block">
+        {program}
+        <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#831238] transition-all duration-300 group-hover:w-full"></span>
+      </h1>
+    </div>
+  );
+};
 
 const CoursePageTemplate = () => {
   const topRecruiters = [
@@ -63,8 +88,8 @@ const CoursePageTemplate = () => {
         <br />
         <p className="text-gray-500">
           The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹41 LPA. Students are guided from their first
-          year and encouraged to participate in innovation, research, and
+          salary packages reaching ₹ 41 LPA. Students are guided from their
+          first year and encouraged to participate in innovation, research, and
           development activities resulting in 30 patents, 4 copyrights, and ₹2
           crore worth of sponsored projects. Notable achievements include
           contributing to the Sathyabama SAT and representing the institution at
@@ -78,16 +103,11 @@ const CoursePageTemplate = () => {
         <h1 className="font-serif italic text-5xl pb-4 text-[#831238]">
           Official Programs
         </h1>
-        <div className="border border-gray-300 w-fit">
-          <Image
-            src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F5%2Ff%2F0%2F11925.jpg&f=1&nofb=1&ipt=694d1a50f9fbe91c2bd6e9d0cd9ac791d24eaebabf6a3df00583848e24a360ef"
-            alt="computing"
-            width={300}
-            height={300}
-          ></Image>
-          <h1 className="text-base font-bold font-inter py-4 pl-2">
-            Computer Science and Engineering
-          </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-20">
+          <CourseCard
+            program="Computer Science Engineering"
+            image="https://wallpaperaccess.com/full/3441817.jpg"
+          />
         </div>
       </div>
       {/* Dean Information Section */}

@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { GraduationCap, BookOpen, Atom, Globe2 } from "lucide-react";
 import Image from "next/image";
+import Underline from "../assets/Underline.png";
 
-// Updated programs array with slug information
 const programs = [
   {
     name: "School of Computing",

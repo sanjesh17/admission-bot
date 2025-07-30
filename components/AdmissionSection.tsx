@@ -12,7 +12,7 @@ const AdmissionSection = () => {
         className="h-[600px] w-[600px]"
       ></Image>
       <div>
-        <h1 className="text-7xl font-serif font-base italic text-[#831238]">
+        <h1 className="text-7xl font-serif font-base italic text-[#831238] mb-4">
           Admissions
         </h1>
         <p className="text-base font-inter text-black/60">

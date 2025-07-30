@@ -14,6 +14,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        canelaLight: ["Canela Light", "sans-serif"],
+        canelaRegular: ["Canela Regular", "sans-serif"],
+        canelaBold: ["Canela Bold", "sans-serif"],
+        canelaBlack: ["Canela Black", "sans-serif"],
+        canelaMedium: ["Canela Medium", "sans-serif"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
+        serif: ["'EB Garamond'", "serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -74,15 +83,16 @@ const config: Config = {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        "scroll-text": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "infinite-scroll": "infinite-scroll 30s linear infinite",
-      },
-      fontFamily: {
-        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
-        serif: ["'EB Garamond'", "serif"],
+        "scroll-text": "scroll-text 20s linear infinite",
       },
     },
   },

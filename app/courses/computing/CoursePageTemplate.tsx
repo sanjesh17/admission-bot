@@ -27,6 +27,68 @@ const CourseCard = ({ program, image }: CourseCardProps) => {
   );
 };
 
+const Courses = [
+  {
+    program: "B.E Computer Science Engineering",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE with AI",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE with DS",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE with IoT",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE with Cyber Security",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE with AI and ML",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE with AI and Robotics",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE with Block Chain Technology",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.E CSE and Business Systems",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.Tech AI and DS",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.Tech Information Technology",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+];
+
+const PGCourses = [
+  {
+    program: "M.E Computer Science and Engineering",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "M.Sc Computer Science",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "Ph.D Computer Science and Engineering",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+];
+
 const CoursePageTemplate = () => {
   const topRecruiters = [
     "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
@@ -101,13 +163,31 @@ const CoursePageTemplate = () => {
       {/* Official Programs Section */}
       <div className="px-24 py-8">
         <h1 className="font-serif italic text-5xl pb-4 text-[#831238]">
-          Official Programs
+          Programmes Offered
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-20">
-          <CourseCard
-            program="Computer Science Engineering"
-            image="https://wallpaperaccess.com/full/3441817.jpg"
-          />
+        <h1 className="font-serif italic text-3xl pb-4 text-[#831238] underline">
+          UG Programmes
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+          {Courses.map((course, index) => (
+            <CourseCard
+              key={index}
+              program={course.program}
+              image={course.image}
+            />
+          ))}
+        </div>
+        <h1 className="font-serif italic text-3xl pb-4 text-[#831238] underline">
+          PG And Ph.D Programmes
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+          {PGCourses.map((course, index) => (
+            <CourseCard
+              key={index}
+              program={course.program}
+              image={course.image}
+            />
+          ))}
         </div>
       </div>
       {/* Dean Information Section */}

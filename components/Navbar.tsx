@@ -11,13 +11,13 @@ const Navbar = () => {
       <div className="space-x-4">
         <Button
           size="lg"
-          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl"
+          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl font-inter"
         >
           Apply Now
         </Button>
         <Button
           size="lg"
-          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl"
+          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl font-inter"
         >
           Virtual Tour
         </Button>

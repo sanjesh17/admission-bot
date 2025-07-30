@@ -25,8 +25,8 @@ const AlertSlider: React.FC = () => {
         </div>
 
         {/* Scrolling News Container */}
-        <div className="flex-1 overflow-hidden relative">
-          <div className="flex whitespace-nowrap animate-[scroll_60s_linear_infinite] hover:[animation-play-state:paused]">
+        <div className="flex-1 overflow-hidden relative cursor-pointer">
+          <div className="flex whitespace-nowrap animate-infinite-scroll hover:[animation-play-state:paused]">
             {duplicatedNews.map((news, index) => (
               <span
                 key={index}

@@ -9,11 +9,11 @@ const images = [
     alt: "School of Allied Health Sciences",
   },
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/CND_Event%2014.jpg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/CND_Event%207.jpg",
     alt: "Modelmaking Lab",
   },
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/CND_Event%2015.jpg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/CND_Event%2011.jpg",
     alt: "As a part of academic curriculum the III year students (Batch 2020-2025)",
   },
 ];
@@ -63,7 +63,7 @@ const Carousel = () => {
         {/* Overlay Text */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <h2 className="text-white text-6xl font-bold font-inter">
-            School of Allied Health Sciences
+          
           </h2>
         </div>
       </div>

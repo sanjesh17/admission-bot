@@ -19,7 +19,7 @@ const programs = [
   },
   {
     name: "School of Electrical and Electronics",
-    slug: "electrical-electronics",
+    slug: "eee",
     image:
       "https://www.sathyabama.ac.in/sites/default/files/styles/image_size_175_175_/public/2020-09/imgonline-com-ua-CompressToSize-JLeOm3aLCw.jpg?itok=sr1YHUdt",
   },
@@ -85,7 +85,13 @@ const programs = [
   },
 ];
 
-const icons = [<GraduationCap />, <Atom />, <BookOpen />, <Globe2 />];
+const icons = [
+  <GraduationCap key="graduation" />,
+  <Atom key="atom" />,
+  <BookOpen key="book" />,
+  <Globe2 key="globe" />
+];
+
 
 const OfficialPrograms: React.FC = () => {
   return (

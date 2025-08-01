@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from "../eee/Carousel";
-import CoursePageTemplate from "@/components/CoursePageTemplate";
+import CoursePageTemplate from "./CoursePageTemplate";
 import withScrollFadeIn from "@/components/withScrollFadeIn"; 
 
 

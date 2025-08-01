@@ -5,15 +5,15 @@ import Image from "next/image";
 
 const images = [
   {
-    src: "https://images.shiksha.com/mediadata/images/1513062947phpsU15qm.png",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/SIST---School-specific-Web-Banner---Computing.jpg",
     alt: "Computer Lab",
   },
   {
-    src: "https://content.jdmagicbox.com/v2/comp/chennai/92/044p4170492/catalogue/sathyabama-institute-of-science-and-technology-sholinganallur-chennai-engineering-colleges-3q8hdta.jpg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/prime-minister-narendra-modi-with-Sathyabama-University-students%20%281%29_0.jpg",
     alt: "Smart Classroom",
   },
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/0O3A0535.jpg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/UAV_robotics.jpg",
     alt: "Research Center",
   },
 ];
@@ -63,7 +63,7 @@ const Carousel = () => {
         {/* Overlay Text */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <h2 className="text-white text-6xl font-bold font-inter">
-            School of Computing
+            
           </h2>
         </div>
       </div>

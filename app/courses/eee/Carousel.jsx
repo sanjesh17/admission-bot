@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const images = [
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/eee.JPG",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/SIST---School-specific-Web-Banner---EEE.jpg",
     alt: "Placements",
   },
   {
@@ -63,7 +63,7 @@ const Carousel = () => {
         {/* Overlay Text */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <h2 className="text-white text-6xl font-bold font-inter">
-            School of Electrical and Electronics
+            
           </h2>
         </div>
       </div>

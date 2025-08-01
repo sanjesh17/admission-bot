@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const images = [
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/inag%202.jpg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/SIST---School-specific-Web-Banner---Nursing.jpg",
     alt: "Sathyabama College of Nursing celebrated the inaugural function of first batch of B.Sc Nursing Students (2019-2020) on 30th October 2019.",
   },
   {

@@ -117,21 +117,27 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-09/WhatsApp%20Image%202020-09-30%20at%206.36.23%20PM.jpeg?itok=gio57z36"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">
+              Dr. Devyani Gangopadhyay
+            </h2>
+            <p className="text-gray-300">B.Arch., M.Plan, B.Arch., Ph.D.,</p>
+            <p className="text-gray-300">Dean, Building Environment</p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr. Devyani Gangopadhyay joined Sathyabama Institute of Science
+              and Technology in January 2018. She completed her Doctoral
+              Research from CEPT University, Ahmedabad. She is a gold medalist
+              in her Post graduation degree in planning from Anna University,
+              Chennai. Her experience includes 9 years of a rich industrial
+              experience in reputed Architectural organizations in addition to
+              academic experience of 14 years. Her research interests include
+              Urban Planning, Urban Design, Energy Efficient Architecture and
+              Vernacular Architecture.
             </p>
           </div>
         </div>

@@ -117,21 +117,27 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2022-09/Anima%20Nanda.jpeg?itok=RC3CinXA"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">Dr. Anima Nanda </h2>
+            <p className="text-gray-300">M.Sc.,Ph.D.,</p>
+            <p className="text-gray-300">
+              Dean, School of Bio and Chemical Engineering
+            </p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr. Anima Nanda is the Dean – IQAC at Sathyabama Institute of
+              Science and Technology, Chennai, and has led four departments
+              under the School of Bio & Chemical Engineering. With expertise in
+              nanotechnology’s role in combating drug-resistant pathogens, she
+              has secured over ₹2.26 crore in government-funded research,
+              published 187+ papers, guided 12 Ph.D. scholars, and holds a
+              patent for a stair-climbing wheelchair. She is a fellow of
+              multiple scientific societies, a reviewer for top journals, and an
+              assessor for NAAC and NABL.
             </p>
           </div>
         </div>

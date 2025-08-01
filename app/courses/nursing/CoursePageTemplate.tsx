@@ -117,21 +117,22 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/LAKSHMI.JPG?itok=B6a4jVZA"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">Dr.L.Lakshmi </h2>
+            <p className="text-gray-300">
+              RN, RM, M.Sc (Nursing), Ph.D (Nursing)
+            </p>
+            <p className="text-gray-300">Dean, School of Nursing</p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr.L.Lakshmi joined as Dean, Sathyabama College of Nursing since
+              May 2019. She is a Doctrate in Nursing and possess wide research
+              knowledge in community nursing and care of elderly. She is a good
+              team leader with a rich administrative experience.
             </p>
           </div>
         </div>

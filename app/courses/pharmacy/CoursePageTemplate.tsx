@@ -117,21 +117,23 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-09/Dr.PANDIYAN.JPG?itok=RZuw7n4o"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">
+              Dr.P.Shanmugapandiyan
+            </h2>
+            <p className="text-gray-300">M.Pharm., Ph.D</p>
+            <p className="text-gray-300">Dean, School of Pharmacy</p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr.P.Shanmugapandiyan joined Sathyabama Institute of Science and
+              Technology as Professor and Dean in 2018. He got his graduation,
+              post-graduation and doctorate degree from The Tamilnadu Dr.MGR
+              Medical University, Chennai. His research interests are to
+              synthesis biologically active compounds and Phytochemical works.
             </p>
           </div>
         </div>

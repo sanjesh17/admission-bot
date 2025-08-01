@@ -117,21 +117,32 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://media.licdn.com/dms/image/v2/D5603AQGOd1MHcf2mqQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1728098426355?e=1756944000&v=beta&t=4dbVzpriJgHYKU7OwIYNw4VsTPYzV0eZW_GQYfz_CAM"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">
+              Dr. Prakash Subramaniam
+            </h2>
+            <p className="text-gray-300">
+              M.E. (CAD), Ph.D. (Mechanical Engineering)
+            </p>
+            <p className="text-gray-300">
+              Dean, School of Mechanical Engineering
+            </p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              A visionary academic leader with over 30 years of experience in
+              engineering education, research, and administration. Expertise
+              spans accreditation (NAAC A++, NBA, ABET), strategic planning, and
+              industry collaboration. As Dean and Program Coordinator, led
+              institutional initiatives securing top accreditations. With 100+
+              publications, 27 patents, and ₹3 crore in funded projects (AICTE,
+              DST), contributed to innovations like Digital Twin Technology.
+              Actively mentored Ph.D. scholars, enabled technology transfers,
+              and partnered with industries to drive curriculum modernization
+              and professional upskilling.
             </p>
           </div>
         </div>

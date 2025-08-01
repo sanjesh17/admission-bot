@@ -117,15 +117,15 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2022-09/WhatsApp%20Image%202022-09-21%20at%203.51.17%20PM.jpeg?itok=_9KY5GWB"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">Dr.Bharathi B</h2>
+            <p className="text-gray-300">M.E.,Ph.D.,</p>
+            <p className="text-gray-300">Dean, School of Physiotherapy</p>
             <p className="text-gray-300 mt-5">
               Dr. L. Lakshmanan is a distinguished academic leader with over 25
               years of experience in computer science education and research.

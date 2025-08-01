@@ -117,21 +117,26 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2024-12/Dean%20picture.jpg?itok=WNGP26Yp"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">
+              Dr Uzma Tanveer Momin
+            </h2>
+            <p className="text-gray-300">PhD</p>
+            <p className="text-gray-300">Dean, School of Management Studies</p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr Uzma Tanveer Momin joined Sathyabama Institute of Science and
+              Technology as a Lecturer in the year 2024. She has completed her
+              Ph.D. from Jiwaji University Gwalior. M.Com. from University of
+              Mumbai, India in 2009. She has completed her B.Com. from
+              University of Mumbai, Sydenham College of Commerce and Economics
+              in 1996. She has completed her B.Ed. from University of Mumbai, in
+              2011.State Eligibility Test (SET - Maharashtra) for Lectureship in
+              2013.National Eligibility Test (NET) for Lectureship in 2012
             </p>
           </div>
         </div>

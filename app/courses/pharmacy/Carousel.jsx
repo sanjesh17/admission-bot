@@ -5,11 +5,11 @@ import Image from "next/image";
 
 const images = [
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/Pharmacy-Workshop-%20CRESCENT%20UNIVERSITY%20-WORK%20SHOP-1.jpeg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/SIST---School-specific-Web-Banner---Pharma.jpg",
     alt: " One day National Work shop on Pharmacovigilance held on 22-Sep-2023",
   },
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/Pharmrally-NPW-2022.jpg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/Pharmacy-Workshop-%20CRESCENT%20UNIVERSITY%20-WORK%20SHOP-1.jpeg",
     alt: "Pharma Rally Program",
   },
   {

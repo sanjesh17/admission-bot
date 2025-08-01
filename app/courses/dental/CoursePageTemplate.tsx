@@ -117,21 +117,27 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2022-09/DR.shahul%20hameed%20faizee%20dental%20dean.jpg?itok=3pVO2ClA"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">
+              Dr. Shahul Hameed Faizee
+            </h2>
+            <p className="text-gray-300">M.D.S</p>
+            <p className="text-gray-300">Dean, School of Dental Sciences</p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr.Shahul Hameed Faizee joined Sathyabama Dental College as
+              Professor & Head of department of Orthodontics in April 2016. He
+              completed his BDS in the year 1996 and MDS in 2001. Presently he
+              is pursuing his PhD in Lasers in Orthodontics. He holds 20 years
+              of teaching undergraduates and postgraduate dental students, along
+              with 15 years of experience in administration and Research
+              activities. His familiarity is student oriented professional
+              involvement which is noteworthy, focussing on academics, research
+              and self development.
             </p>
           </div>
         </div>

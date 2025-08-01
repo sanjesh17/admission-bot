@@ -44,7 +44,7 @@ const CoursePageTemplate = () => {
     <div className="max-w-7xl mx-auto">
       <div className="flex px-24 pt-24 pb-8 gap-40">
         <h1 className="text-5xl font-serif italic text-[#831238]">
-          School of Law 
+          School of Law
         </h1>
         <p className="text-gray-500">
           The School of Computing at Sathyabama Institute of Science and
@@ -117,21 +117,25 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/WhatsApp%20Image%202020-09-30%20at%207.42.53%20PM.jpeg?itok=WeLRpoiP"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">Dr. Dilshad Shaik</h2>
+            <p className="text-gray-300">M.L., Ph.D</p>
+            <p className="text-gray-300">Dean, School of Law</p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr.Dilshad Shaik joined Sathyabama Institute of Science and
+              Technology(Deemed to be university) as Founder Dean for School of
+              Law in 2018. She is a Gold Medalist in M.L from Sri Venkateswara
+              University. She has completed her Ph.D in Cyber Laws from Sri
+              Padmavathi Mahila Visvavidyalayam, Tirupati, A.P. She has
+              organized many Moot Court Competitions, National and International
+              Conferences, Seminars, Wrokshops, Symposiums and Faculty
+              Development Programs. She is editorial board member for many
+              Journals and life member in many professional bodies.
             </p>
           </div>
         </div>

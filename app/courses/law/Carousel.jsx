@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const images = [
   {
-    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/EVENT%201_1.jpg",
+    src: "https://www.sathyabama.ac.in/sites/default/files/inline-images/SIST---School-specific-Web-Banner---Law.jpg",
     alt: "Col. Dr Jeppiaar 1st National Mediation Competition, 2023",
   },
   {
@@ -63,7 +63,7 @@ const Carousel = () => {
         {/* Overlay Text */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <h2 className="text-white text-6xl font-bold font-inter">
-            School of Law   
+              
           </h2>
         </div>
       </div>

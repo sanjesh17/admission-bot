@@ -1,11 +1,11 @@
-import React from "react";
-import Image from "next/image";
-import TopRecruiters from "../../../components/TopRecruiters";
+import React from "react"
+import Image from "next/image"
+import TopRecruiters from "../../../components/TopRecruiters"
 
 type CourseCardProps = {
-  program: string;
-  image: string;
-};
+  program: string
+  image: string
+}
 
 const CourseCard = ({ program, image }: CourseCardProps) => {
   return (
@@ -24,8 +24,8 @@ const CourseCard = ({ program, image }: CourseCardProps) => {
         <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#831238] transition-all duration-300 group-hover:w-full"></span>
       </h1>
     </div>
-  );
-};
+  )
+}
 
 const CoursePageTemplate = () => {
   const topRecruiters = [
@@ -39,7 +39,7 @@ const CoursePageTemplate = () => {
     "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg",
     "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg",
     "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-  ];
+  ]
   return (
     <div className="max-w-7xl mx-auto">
       <div className="flex px-24 pt-24 pb-8 gap-40">
@@ -94,7 +94,7 @@ const CoursePageTemplate = () => {
           crore worth of sponsored projects. Notable achievements include
           contributing to the Sathyabama SAT and representing the institution at
           global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students  global
+          internships and exchange programs further enhance students global
           exposure and career readiness.
         </p>
       </div>
@@ -117,21 +117,24 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/LAKSHMI.JPG?itok=B6a4jVZA"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
-            <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <h2 className="text-2xl font-bold text-white">Dr.L.Lakshmi</h2>
+            <p className="text-gray-300">
+              RN, RM, M.Sc (Nursing), Ph.D (Nursing)
+            </p>
+            <p className="text-gray-300">
+              Dean, School of Allied Health Sciences
+            </p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr.L.Lakshmi joined as Dean, Sathyabama College of Nursing since
+              May 2019. She is a Doctrate in Nursing and possess wide research
+              knowledge in community nursing and care of elderly. She is a good
+              team leader with a rich administrative experience.
             </p>
           </div>
         </div>
@@ -153,7 +156,7 @@ const CoursePageTemplate = () => {
         <TopRecruiters logos={topRecruiters} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CoursePageTemplate;
+export default CoursePageTemplate

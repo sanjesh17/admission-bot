@@ -117,21 +117,24 @@ const CoursePageTemplate = () => {
         </h1>
         <div className="flex items-center gap-8">
           <Image
-            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-10/L.LAKSHMANAN.JPG?itok=-YbJRGDs"
+            src="https://www.sathyabama.ac.in/sites/default/files/styles/large/public/2020-09/WhatsApp%20Image%202020-09-30%20at%204.27.42%20PM.jpeg?itok=2jIt6MJR"
             alt="Dean"
             width={200}
             height={200}
           ></Image>
           <div>
-            <h2 className="text-2xl font-bold text-white">Dr. L. Lakshmanan</h2>
+            <h2 className="text-2xl font-bold text-white">Dr.N.M.Nandhitha</h2>
             <p className="text-gray-300">M.E., Ph.D</p>
-            <p className="text-gray-300">Dean, School of Computing</p>
+            <p className="text-gray-300">Dean, School of Electronics</p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr.N.M.Nandhitha, Professor & Dean, School of Electrical and
+              Electronics, joined Sathyabama Institute of Science and Technology
+              as Asst. Professor in June 2002. She has completed her Masters in
+              Power Electronics and Industrial Drives with a Gold Medal. She has
+              completed her doctoral research in Thermal Image Processing and
+              Soft Computing Techniques in 2011. She has successfully completed
+              research projects sponsored from DST, TNSCST, BRNS and BRFST. She
+              is life member in Institution of Engineers, India.
             </p>
           </div>
         </div>

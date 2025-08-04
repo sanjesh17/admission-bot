@@ -131,11 +131,13 @@ const CoursePageTemplate = () => {
               Dean, School of Science and humanities
             </p>
             <p className="text-gray-300 mt-5">
-              Dr. L. Lakshmanan is a distinguished academic leader with over 25
-              years of experience in computer science education and research.
-              His expertise spans artificial intelligence, data science, and
-              software engineering, and he has been instrumental in shaping the
-              curriculum and research initiatives at the School of Computing.
+              Dr.Rekha Chakravarthi, Associate Professor & Dean, Science and
+              humanities­, joined Sathyabama Institute of Science and Technology
+              as Asst. Professor in the year 2001. She has completed her M.E. in
+              Applied Electronics. She has completed her Ph.D in Development of
+              Congestion Detection and Control Technique for Wireless Sensor
+              Networks in the year 2014 in Sathyabama University. She has
+              totally 21years of experience in Teaching and Research.
             </p>
           </div>
         </div>

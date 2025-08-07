@@ -48,15 +48,19 @@ const StudentCounseling = () => {
   });
 
   const programOptions = [
-    "Engineering Programmes (B.E. / B.Tech / B.Des)",
-    "Architecture Programmes",
-    "Pharmacy Programmes",
-    "Nursing Programmes",
-    "Physiotherapy Programmes",
-    "Dental Programmes",
-    "Law Programmes",
-    "Arts, Science and Humanities Programmes",
-    "Engineering Programmes (B.E. / B.Tech)",
+    "School of Computing",
+    "School of Building and Environment",
+    "School of Pharmacy",
+    "School of Nursing",
+    "School of Physiotherapy",
+    "School of Dental Sciences",
+    "School of Law",
+    "School of Science & Humanities",
+    "School of Management Studies",
+    "School of Allied Health Sciences",
+    "School of Bio and Chemical Engineering",
+    "School of Mechanical",
+    "School of Electrical and Electronics",
   ];
 
   // Open the dialog automatically when component mounts
@@ -116,6 +120,7 @@ const StudentCounseling = () => {
   };
 
   const handleSubmitCourses = () => {
+    localStorage.setItem("courses", JSON.stringify(formData.selectedCourses));
     setCurrentStep("results");
   };
 
@@ -230,7 +235,7 @@ const StudentCounseling = () => {
                   I have taken an entrance exam
                 </Label>
               </div>
-              
+
               {formData.hasEntranceExam && (
                 <div className="space-y-4 pt-2">
                   <div className="space-y-2">
@@ -292,7 +297,7 @@ const StudentCounseling = () => {
                 Choose any 3 programs you are interested in pursuing
               </p>
 
-              <div className="grid gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {programOptions.map((program) => (
                   <Card
                     key={program}

@@ -97,7 +97,6 @@ function Home() {
           </h1>
         </div>
       </div>
-
       <OfficialPrograms />
     </div>
   );

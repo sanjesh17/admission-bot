@@ -1,0 +1,717 @@
+
+export interface Recruiter {
+  name: string;
+  logoUrl: string;
+}
+
+export interface PlacementData {
+  description: string;
+  duration: string;
+  eligibility: string;
+  averageSalary: string;
+  specializations: string[];
+  careerOptions: string[];
+  recruiters: Recruiter[];
+  totalQuestions: number;
+}
+
+export const QUESTION_BANK = {
+  "School of Computing": [
+    {
+      question:
+        "I like solving coding problems and understanding how software algorithms work.",
+    },
+    {
+      question:
+        "I enjoy providing technical support to users and training others on IT systems.",
+    },
+    {
+      question:
+        "I'm fascinated by how machines can learn and mimic human intelligence.",
+    },
+    {
+      question:
+        "I like analyzing large datasets to discover hidden patterns and insights.",
+    },
+    {
+      question:
+        "I aspire to develop my own software applications or start a tech company.",
+    },
+    {
+      question:
+        "I'm interested in conducting deep research in computer science and exploring new technologies.",
+    },
+  ],
+  "School of Building and Environment": [
+    {
+      question:
+        "I enjoy working with architectural models, drafting tools, and design software like AutoCAD.",
+    },
+    {
+      question:
+        "I am interested in researching historical building styles and how structural engineering principles apply to design.",
+    },
+    {
+      question:
+        "I am passionate about sketching building concepts and creating visually innovative and functional spaces.",
+    },
+    {
+      question:
+        "I enjoy collaborating with clients to understand their vision and working with construction teams to bring a design to life.",
+    },
+    {
+      question:
+        "I aspire to lead an architectural firm or manage large-scale urban development projects.",
+    },
+    {
+      question:
+        "I understand the importance of following building codes, zoning laws, and precise project specifications.",
+    },
+  ],
+  "School of Pharmacy": [
+    {
+      question:
+        "I'm interested in understanding how drugs work in the body and their therapeutic effects.",
+    },
+    {
+      question:
+        "I aspire to work in pharmaceutical companies or start my own pharmacy business.",
+    },
+    {
+      question:
+        "I'm fascinated by clinical research and understanding complex drug interactions.",
+    },
+    {
+      question:
+        "I want to serve my community by providing accessible pharmaceutical services.",
+    },
+    {
+      question:
+        "I want to work directly with patients as part of healthcare teams to optimize medication therapy.",
+    },
+    {
+      question:
+        "I aspire to own a community pharmacy or advance in pharmaceutical retail management.",
+    },
+  ],
+  "School of Nursing": [
+    {
+      question:
+        "I enjoy working with medical equipment and providing hands-on patient care.",
+    },
+    {
+      question:
+        "I like understanding disease processes and how different treatments affect patient outcomes.",
+    },
+    {
+      question:
+        "I find the holistic approach to patient care and creative problem-solving in nursing appealing.",
+    },
+    {
+      question:
+        "I'm passionate about caring for patients and supporting them through their health challenges.",
+    },
+    {
+      question:
+        "I aspire to advance to nursing leadership roles or specialize in advanced nursing practice.",
+    },
+    {
+      question:
+        "I appreciate following medical protocols and maintaining accurate patient care documentation.",
+    },
+  ],
+  "School of Physiotherapy": [
+    {
+      question:
+        "I enjoy working with therapeutic equipment and providing hands-on physical rehabilitation.",
+    },
+    {
+      question:
+        "I'm interested in understanding how the human body moves and recovers from injuries.",
+    },
+    {
+      question:
+        "I'm passionate about helping patients regain their mobility and improve their quality of life.",
+    },
+    {
+      question:
+        "I find developing creative exercise programs and treatment plans engaging.",
+    },
+    {
+      question:
+        "I aspire to specialize in sports physiotherapy or start my own rehabilitation clinic.",
+    },
+    {
+      question:
+        "I appreciate following treatment protocols and maintaining detailed patient progress records.",
+    },
+  ],
+  "School of Dental Sciences": [
+    {
+      question:
+        "I am comfortable working with dental tools, impression materials, and other hands-on equipment.",
+    },
+    {
+      question:
+        "I am fascinated by the anatomy of the head and neck and diagnosing oral diseases from X-rays and exams.",
+    },
+    {
+      question:
+        "I find satisfaction in the craftsmanship of restorative dental work, like creating perfectly shaped crowns or fillings.",
+    },
+    {
+      question:
+        "I feel motivated to help patients overcome their fear of dental procedures and educate them on proper oral hygiene.",
+    },
+    {
+      question:
+        "I aspire to own and manage my own private dental practice and lead a team of dental professionals.",
+    },
+    {
+      question:
+        "I appreciate the need to follow strict infection control protocols and maintain precise, detailed patient records.",
+    },
+  ],
+  "School of Law": [
+    { question: "I enjoy debating, arguing a point, and public speaking." },
+    { question: "I have a strong interest in justice, rights, and ethics." },
+    {
+      question:
+        "I am good at reading and interpreting complex texts and rules.",
+    },
+    { question: "I like to structure logical arguments to persuade others." },
+    { question: "I am interested in how society is regulated by laws." },
+    {
+      question: "I pay close attention to detail and can spot inconsistencies.",
+    },
+  ],
+  "School of Science & Humanities": [
+    {
+      question:
+        "I feel passionate about creative writing, poetry, and expressing ideas through language.",
+    },
+    {
+      question:
+        "I'm fascinated by understanding the fundamental laws that govern the universe.",
+    },
+    {
+      question:
+        "I'm passionate about creating original clothing designs and expressing creativity through fashion.",
+    },
+    {
+      question:
+        "I feel fulfilled helping individuals and families overcome personal and social challenges.",
+    },
+    {
+      question:
+        "I'm passionate about creating visually compelling graphics, videos, and multimedia content.",
+    },
+    {
+      question:
+        "I'm fascinated by understanding human behavior and mental processes.",
+    },
+  ],
+  "School of Management Studies": [
+    {
+      question:
+        "I enjoy analyzing business case studies and developing strategic solutions to organizational challenges.",
+    },
+    {
+      question:
+        "I am interested in understanding market trends, consumer behavior, and financial principles.",
+    },
+    {
+      question:
+        "I am passionate about leading teams, motivating individuals, and fostering a collaborative work environment.",
+    },
+    {
+      question:
+        "I find developing innovative business models and marketing campaigns to be engaging.",
+    },
+    {
+      question:
+        "I aspire to manage a major corporation, start my own business, or become a consultant for top firms.",
+    },
+    {
+      question:
+        "I appreciate the importance of ethical decision-making, corporate governance, and data-driven management.",
+    },
+  ],
+  "School of Allied Health Sciences": [
+    {
+      question:
+        "I enjoy working with diagnostic equipment and assisting in various medical procedures.",
+    },
+    {
+      question:
+        "I am fascinated by human anatomy, physiology, and the diagnosis of diseases.",
+    },
+    {
+      question:
+        "I am passionate about providing compassionate support to patients and collaborating with healthcare professionals.",
+    },
+    {
+      question:
+        "I find satisfaction in conducting laboratory tests and ensuring the accuracy of medical results.",
+    },
+    {
+      question:
+        "I aspire to specialize in a specific area of allied health, such as medical imaging, therapy, or laboratory sciences.",
+    },
+    {
+      question:
+        "I understand the importance of following strict health and safety protocols and maintaining precise patient records.",
+    },
+  ],
+  "School of Bio and Chemical Engineering": [
+    {
+      question:
+        "I enjoy conducting laboratory experiments and working with bioreactors and chemical processing equipment.",
+    },
+    {
+      question:
+        "I am interested in molecular biology, chemical reactions, and how to scale these processes for industrial applications.",
+    },
+    {
+      question:
+        "I am passionate about developing sustainable solutions and innovative products in areas like pharmaceuticals, biofuels, or new materials.",
+    },
+    {
+      question:
+        "I find designing and optimizing bioprocesses and chemical production systems to be a creative challenge.",
+    },
+    {
+      question:
+        "I aspire to work in research and development for a biotechnology or chemical company or pursue advanced studies in the field.",
+    },
+    {
+      question:
+        "I appreciate the need for rigorous safety standards, process control, and detailed documentation in engineering.",
+    },
+  ],
+  "School of Mechanical": [
+    {
+      question:
+        "I enjoy working with machinery, using design software like CAD, and building mechanical prototypes.",
+    },
+    {
+      question:
+        "I am fascinated by thermodynamics, fluid mechanics, and the principles of motion and energy.",
+    },
+    {
+      question:
+        "I am passionate about designing and building machines that solve real-world problems.",
+    },
+    {
+      question:
+        "I find satisfaction in troubleshooting mechanical failures and improving the efficiency of existing systems.",
+    },
+    {
+      question:
+        "I aspire to lead engineering projects, work in the automotive or aerospace industry, or start my own engineering firm.",
+    },
+    {
+      question:
+        "I understand the importance of precision, material strength, and adhering to engineering codes and standards.",
+    },
+  ],
+  "School of Electrical and Electronics": [
+    {
+      question:
+        "I enjoy building circuits, working with microcontrollers, and using tools to test electronic devices.",
+    },
+    {
+      question:
+        "I am interested in understanding electromagnetism, circuit theory, and signal processing.",
+    },
+    {
+      question:
+        "I am passionate about designing innovative electronic gadgets and power systems.",
+    },
+    {
+      question:
+        "I find creating and debugging code for hardware applications to be an engaging challenge.",
+    },
+    {
+      question:
+        "I aspire to work in fields like telecommunications, renewable energy, or consumer electronics development.",
+    },
+    {
+      question:
+        "I appreciate the importance of following technical specifications, safety protocols, and maintaining accurate design schematics.",
+    },
+  ],
+};
+
+
+export const PLACEMENT_DATA: Record<string, PlacementData> = {
+  "School of Computing": {
+    description:
+      "Build the future with a comprehensive engineering education, covering everything from software to hardware.",
+    duration: "4 Years (B.E / B.Tech)",
+    eligibility: "10+2 with Physics, Chemistry, Maths",
+    averageSalary: "₹4.5-12 LPA",
+    specializations: [
+      "Computer Science",
+      "AI & Data Science",
+      "Cybersecurity",
+      "Cloud Computing",
+    ],
+    careerOptions: [
+      "Software Developer",
+      "System Architect",
+      "Data Scientist",
+      "DevOps Engineer",
+      "AI/ML Engineer",
+    ],
+    recruiters: [
+      { name: "Microsoft", logoUrl: "https://logo.clearbit.com/microsoft.com" },
+      { name: "Google", logoUrl: "https://logo.clearbit.com/google.com" },
+      { name: "Amazon", logoUrl: "https://logo.clearbit.com/amazon.com" },
+      { name: "TCS", logoUrl: "https://logo.clearbit.com/tcs.com" },
+      { name: "Infosys", logoUrl: "https://logo.clearbit.com/infosys.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Building and Environment": {
+    description:
+      "Design and shape the built environment through a blend of art, science, and technology in our comprehensive architecture program.",
+    duration: "5 Years (B.Arch)",
+    eligibility: "10+2 with PCM and NATA score",
+    averageSalary: "₹4-8 LPA",
+    specializations: [
+      "Urban Design",
+      "Landscape Architecture",
+      "Sustainable Architecture",
+      "Interior Design",
+    ],
+    careerOptions: [
+      "Architect",
+      "Urban Planner",
+      "Interior Designer",
+      "Project Manager",
+      "Design Consultant",
+    ],
+    recruiters: [
+      {
+        name: "Hafeez Contractor",
+        logoUrl: "https://logo.clearbit.com/hafeezcontractor.com",
+      },
+      {
+        name: "C.P. Kukreja",
+        logoUrl: "https://logo.clearbit.com/cpkukreja.com",
+      },
+      {
+        name: "Morphogenesis",
+        logoUrl: "https://logo.clearbit.com/morphogenesis.org",
+      },
+      { name: "DLF", logoUrl: "https://logo.clearbit.com/dlf.in" },
+      {
+        name: "Larsen & Toubro",
+        logoUrl: "https://logo.clearbit.com/larsentoubro.com",
+      },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Pharmacy": {
+    description:
+      "Comprehensive education in pharmaceutical sciences, preparing students for various roles in the healthcare industry and research.",
+    duration: "4 Years (B.Pharm) / 2 Years (M.Pharm)",
+    eligibility: "10+2 with PCB/PCM for B.Pharm",
+    averageSalary: "₹2.5-6 LPA",
+    specializations: [
+      "Pharmaceutics",
+      "Pharmacology",
+      "Pharmaceutical Chemistry",
+      "Clinical Pharmacy",
+    ],
+    careerOptions: [
+      "Community Pharmacist",
+      "Hospital Pharmacist",
+      "Drug Inspector",
+      "Medical Writer",
+      "Research Scientist",
+    ],
+    recruiters: [
+      { name: "Cipla", logoUrl: "https://logo.clearbit.com/cipla.com" },
+      {
+        name: "Sun Pharma",
+        logoUrl: "https://logo.clearbit.com/sunpharma.com",
+      },
+      {
+        name: "Dr. Reddy's",
+        logoUrl: "https://logo.clearbit.com/drreddys.com",
+      },
+      {
+        name: "Apollo Pharmacy",
+        logoUrl: "https://logo.clearbit.com/apollopharmacy.in",
+      },
+      { name: "Novartis", logoUrl: "https://logo.clearbit.com/novartis.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Nursing": {
+    description:
+      "Develop the skills and compassion to provide high-quality patient care in a variety of healthcare settings.",
+    duration: "4 Years (B.Sc. Nursing)",
+    eligibility: "10+2 with PCB and English",
+    averageSalary: "₹2.5-5 LPA",
+    specializations: [
+      "Medical-Surgical",
+      "Pediatric Nursing",
+      "Psychiatric Nursing",
+      "Community Health",
+    ],
+    careerOptions: [
+      "Staff Nurse",
+      "Nurse Educator",
+      "Clinical Nurse Specialist",
+      "Nursing Administrator",
+    ],
+    recruiters: [
+      {
+        name: "Apollo Hospitals",
+        logoUrl: "https://logo.clearbit.com/apollohospitals.com",
+      },
+      {
+        name: "Fortis Healthcare",
+        logoUrl: "https://logo.clearbit.com/fortishealthcare.com",
+      },
+      {
+        name: "Max Healthcare",
+        logoUrl: "https://logo.clearbit.com/maxhealthcare.in",
+      },
+      { name: "AIIMS", logoUrl: "https://logo.clearbit.com/aiims.edu" },
+      {
+        name: "Manipal Hospitals",
+        logoUrl: "https://logo.clearbit.com/manipalhospitals.com",
+      },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Physiotherapy": {
+    description:
+      "Learn to restore movement and function in patients affected by injury, illness, or disability.",
+    duration: "4.5 Years (BPT)",
+    eligibility: "10+2 with PCB",
+    averageSalary: "₹2-6 LPA",
+    specializations: [
+      "Orthopedic",
+      "Neurological",
+      "Cardiopulmonary",
+      "Sports Physiotherapy",
+    ],
+    careerOptions: [
+      "Physiotherapist",
+      "Rehabilitation Specialist",
+      "Sports Physio",
+      "Ergonomics Consultant",
+    ],
+    recruiters: [
+      {
+        name: "Talwalkers",
+        logoUrl: "https://logo.clearbit.com/talwalkers.net",
+      },
+      {
+        name: "HelpAge India",
+        logoUrl: "https://logo.clearbit.com/helpageindia.org",
+      },
+      {
+        name: "Apollo Hospitals",
+        logoUrl: "https://logo.clearbit.com/apollohospitals.com",
+      },
+      { name: "Fortis Healthcare", logoUrl: "https://logo.clearbit.com/fortishealthcare.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Dental Sciences": {
+    description:
+      "Gain expertise in oral health care, from diagnosis and treatment to prevention of dental diseases.",
+    duration: "5 Years (BDS)",
+    eligibility: "10+2 with PCB and NEET score",
+    averageSalary: "₹3-7 LPA",
+    specializations: [
+      "Orthodontics",
+      "Endodontics",
+      "Prosthodontics",
+      "Oral Surgery",
+    ],
+    careerOptions: [
+      "Dentist",
+      "Orthodontist",
+      "Dental Surgeon",
+      "Public Health Specialist",
+    ],
+    recruiters: [
+      {
+        name: "Clove Dental",
+        logoUrl: "https://logo.clearbit.com/clovedental.in",
+      },
+      {
+        name: "Axiss Dental",
+        logoUrl: "https://logo.clearbit.com/axissdental.com",
+      },
+      {
+        name: "Private Clinics",
+        logoUrl: "https://logo.clearbit.com/health.com",
+      },
+      {
+        name: "Government Hospitals",
+        logoUrl: "https://logo.clearbit.com/aiims.edu",
+      },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Law": {
+    description:
+      "Comprehensive legal education covering various aspects of law, jurisprudence, and legal practice.",
+    duration: "5 Years (Integrated) / 3 Years (LLB)",
+    eligibility: "10+2 for 5-year course / Graduation for 3-year course",
+    averageSalary: "₹3-10 LPA",
+    specializations: [
+      "Corporate Law",
+      "Criminal Law",
+      "Constitutional Law",
+      "Intellectual Property",
+      "Cyber Law",
+    ],
+    careerOptions: [
+      "Advocate",
+      "Legal Advisor",
+      "Judge",
+      "Legal Consultant",
+      "Corporate Lawyer",
+    ],
+    recruiters: [
+      {
+        name: "AZB & Partners",
+        logoUrl: "https://logo.clearbit.com/azbpartners.com",
+      },
+      {
+        name: "Khaitan & Co",
+        logoUrl: "https://logo.clearbit.com/khaitanco.com",
+      },
+      { name: "Trilegal", logoUrl: "https://logo.clearbit.com/trilegal.com" },
+      {
+        name: "J Sagar Associates",
+        logoUrl: "https://logo.clearbit.com/jsalaw.com",
+      },
+      { name: "Cyril Amarchand Mangaldas", logoUrl: "https://logo.clearbit.com/cyrilshroff.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Science & Humanities": {
+    description:
+      "Explore the depths of human creativity, society, and scientific inquiry with a diverse range of programs.",
+    duration: "3 Years (BA / B.Sc)",
+    eligibility: "10+2 in relevant stream",
+    averageSalary: "₹2.5-7 LPA (Varies widely by field)",
+    specializations: [
+      "English Literature",
+      "Psychology",
+      "Economics",
+      "Physics",
+      "Visual Communication",
+      "Fashion Design",
+    ],
+    careerOptions: [
+      "Content Writer",
+      "Journalist",
+      "Researcher",
+      "Analyst",
+      "Designer",
+      "Psychologist",
+    ],
+    recruiters: [
+      { name: "Deloitte", logoUrl: "https://logo.clearbit.com/deloitte.com" },
+      { name: "Accenture", logoUrl: "https://logo.clearbit.com/accenture.com" },
+      { name: "Myntra", logoUrl: "https://logo.clearbit.com/myntra.com" },
+      {
+        name: "The Times Group",
+        logoUrl: "https://logo.clearbit.com/timesgroup.com",
+      },
+      { name: "NielsenIQ", logoUrl: "https://logo.clearbit.com/nielseniq.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Management Studies": {
+    description: "Develop leadership skills and business acumen to excel in the corporate world with our dynamic management programs.",
+    duration: "3 Years (BBA) / 2 Years (MBA)",
+    eligibility: "10+2 for BBA / Graduation for MBA",
+    averageSalary: "₹6-15 LPA",
+    specializations: ["Marketing", "Finance", "Human Resources", "Operations", "Business Analytics"],
+    careerOptions: ["Management Consultant", "Brand Manager", "Financial Analyst", "HR Manager", "Supply Chain Manager"],
+    recruiters: [
+        { name: "Deloitte", logoUrl: "https://logo.clearbit.com/deloitte.com" },
+        { name: "KPMG", logoUrl: "https://logo.clearbit.com/kpmg.com" },
+        { name: "Procter & Gamble", logoUrl: "https://logo.clearbit.com/pg.com" },
+        { name: "HDFC Bank", logoUrl: "https://logo.clearbit.com/hdfcbank.com" },
+        { name: "Amazon", logoUrl: "https://logo.clearbit.com/amazon.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Allied Health Sciences": {
+    description: "Train in critical healthcare support roles, from diagnostics to therapeutic care, in a state-of-the-art learning environment.",
+    duration: "3-4 Years (B.Sc.)",
+    eligibility: "10+2 with PCB",
+    averageSalary: "₹3-6 LPA",
+    specializations: ["Medical Lab Technology", "Radiography & Imaging", "Optometry", "Anesthesia Technology", "Cardiac Care"],
+    careerOptions: ["Lab Technologist", "Radiographer", "Optometrist", "Physician Assistant", "Cardiac Care Technician"],
+    recruiters: [
+        { name: "Dr. Lal PathLabs", logoUrl: "https://logo.clearbit.com/lalpathlabs.com" },
+        { name: "Thyrocare", logoUrl: "https://logo.clearbit.com/thyrocare.com" },
+        { name: "Lenskart", logoUrl: "https://logo.clearbit.com/lenskart.com" },
+        { name: "Apollo Hospitals", logoUrl: "https://logo.clearbit.com/apollohospitals.com" },
+        { name: "Fortis Healthcare", logoUrl: "https://logo.clearbit.com/fortishealthcare.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Bio and Chemical Engineering": {
+    description: "Integrate principles of biology and chemistry with engineering to design innovative solutions in pharma, energy, and materials.",
+    duration: "4 Years (B.Tech)",
+    eligibility: "10+2 with PCM/B",
+    averageSalary: "₹4-9 LPA",
+    specializations: ["Bioprocess Engineering", "Biomaterials", "Chemical Process Technology", "Environmental Engineering", "Food Technology"],
+    careerOptions: ["Bioprocess Engineer", "R&D Scientist", "Chemical Engineer", "Environmental Consultant", "Food Technologist"],
+    recruiters: [
+        { name: "Biocon", logoUrl: "https://logo.clearbit.com/biocon.com" },
+        { name: "Reliance Industries", logoUrl: "https://logo.clearbit.com/ril.com" },
+        { name: "BASF", logoUrl: "https://logo.clearbit.com/basf.com" },
+        { name: "Nestle", logoUrl: "https://logo.clearbit.com/nestle.com" },
+        { name: "Dr. Reddy's", logoUrl: "https://logo.clearbit.com/drreddys.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Mechanical": {
+    description: "Master the design, analysis, and manufacturing of mechanical systems, from heavy machinery to advanced robotics.",
+    duration: "4 Years (B.E / B.Tech)",
+    eligibility: "10+2 with Physics, Chemistry, Maths",
+    averageSalary: "₹4-10 LPA",
+    specializations: ["Automobile Engineering", "Robotics & Automation", "Thermodynamics", "Industrial Production", "Mechatronics"],
+    careerOptions: ["Mechanical Engineer", "Automotive Engineer", "Design Engineer", "Production Manager", "Robotics Engineer"],
+    recruiters: [
+        { name: "Tata Motors", logoUrl: "https://logo.clearbit.com/tatamotors.com" },
+        { name: "Mahindra & Mahindra", logoUrl: "https://logo.clearbit.com/mahindra.com" },
+        { name: "Larsen & Toubro", logoUrl: "https://logo.clearbit.com/larsentoubro.com" },
+        { name: "Siemens", logoUrl: "https://logo.clearbit.com/siemens.com" },
+        { name: "Maruti Suzuki", logoUrl: "https://logo.clearbit.com/marutisuzuki.com" },
+    ],
+    totalQuestions: 6,
+  },
+  "School of Electrical and Electronics": {
+    description: "Dive into the world of circuits, power systems, and electronics to power the future of technology and communication.",
+    duration: "4 Years (B.E / B.Tech)",
+    eligibility: "10+2 with Physics, Chemistry, Maths",
+    averageSalary: "₹4-11 LPA",
+    specializations: ["Power Systems", "VLSI Design", "Embedded Systems", "Telecommunications", "Signal Processing"],
+    careerOptions: ["Electrical Engineer", "Electronics Engineer", "Control Systems Engineer", "Telecom Engineer", "Hardware Engineer"],
+    recruiters: [
+        { name: "Intel", logoUrl: "https://logo.clearbit.com/intel.com" },
+        { name: "Qualcomm", logoUrl: "https://logo.clearbit.com/qualcomm.com" },
+        { name: "Bosch", logoUrl: "https://logo.clearbit.com/bosch.com" },
+        { name: "NTPC Limited", logoUrl: "https://logo.clearbit.com/ntpc.co.in" },
+        { name: "Schneider Electric", logoUrl: "https://logo.clearbit.com/se.com" },
+    ],
+    totalQuestions: 6,
+  },
+};

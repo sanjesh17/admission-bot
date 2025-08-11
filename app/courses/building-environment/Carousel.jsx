@@ -61,11 +61,7 @@ const Carousel = () => {
         ))}
 
         {/* Overlay Text */}
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <h2 className="text-white text-6xl font-bold font-inter">
-            School of  Building and Environment
-          </h2>
-        </div>
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center"></div>
       </div>
 
       {/* Navigation Arrows */}

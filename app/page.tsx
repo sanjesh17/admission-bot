@@ -1,16 +1,4 @@
 "use client";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Calendar,
-  GraduationCap,
-  BookOpen,
-  Award,
-  Globe,
-  FlaskRound as Flask,
-  Building,
-} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import AdmissionsSection from "@/components/AdmissionSection";
 import OfficialPrograms from "@/components/OfficialPrograms";
@@ -86,13 +74,13 @@ function Home() {
 
       <AdmissionsSection />
 
-      <div className="relative h-40 overflow-hidden mb-12">
+      <div className="relative h-52 overflow-hidden mb-12">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white z-10"></div>
         <div className="animate-infinite-scroll whitespace-nowrap flex w-[200%]">
-          <h1 className="font-inter text-[200px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-black/20 to-white flex-shrink-0">
+          <h1 className="font-inter text-[180px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-black/20 to-white flex-shrink-0">
             Admissions Open for 2025-26
           </h1>
-          <h1 className="font-inter text-[200px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-black/20 to-white flex-shrink-0 ml-24">
+          <h1 className="font-inter text-[180px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-black/20 to-white flex-shrink-0 ml-24">
             Admissions Open for 2025-26
           </h1>
         </div>

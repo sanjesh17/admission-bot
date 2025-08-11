@@ -257,7 +257,7 @@ export default function CourseInterestAssessment() {
       <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-purple-50/20 via-white to-blue-50/20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#8B0000] rounded-full mb-6 shadow-lg">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#831238] rounded-full mb-6 shadow-lg">
               <BookOpen className="h-10 w-10 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -273,14 +273,14 @@ export default function CourseInterestAssessment() {
           <Card className="max-w-3xl mx-auto shadow-xl border-0 bg-white">
             <CardHeader className="text-center pb-4">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl font-bold text-gray-800">
-                <Target className="h-7 w-7 text-[#8B0000]" />
+                <Target className="h-7 w-7 text-[#831238]" />
                 Assessment Overview
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-8 px-6 sm:px-8 pb-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-gray-100">
-                  <div className="flex items-center justify-center w-12 h-12 bg-[#8B0000] rounded-full flex-shrink-0">
+                  <div className="flex items-center justify-center w-12 h-12 bg-[#831238] rounded-full flex-shrink-0">
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -290,7 +290,7 @@ export default function CourseInterestAssessment() {
                 </div>
 
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-gray-100">
-                  <div className="flex items-center justify-center w-12 h-12 bg-[#8B0000] rounded-full flex-shrink-0">
+                  <div className="flex items-center justify-center w-12 h-12 bg-[#831238] rounded-full flex-shrink-0">
                     <CheckCircle className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -302,7 +302,7 @@ export default function CourseInterestAssessment() {
                 </div>
 
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-gray-100">
-                  <div className="flex items-center justify-center w-12 h-12 bg-[#8B0000] rounded-full flex-shrink-0">
+                  <div className="flex items-center justify-center w-12 h-12 bg-[#831238] rounded-full flex-shrink-0">
                     <TrendingUp className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -314,7 +314,7 @@ export default function CourseInterestAssessment() {
                 </div>
 
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-gray-100">
-                  <div className="flex items-center justify-center w-12 h-12 bg-[#8B0000] rounded-full flex-shrink-0">
+                  <div className="flex items-center justify-center w-12 h-12 bg-[#831238] rounded-full flex-shrink-0">
                     <Award className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -340,7 +340,7 @@ export default function CourseInterestAssessment() {
 
               <Button
                 onClick={startQuiz}
-                className="w-full py-4 text-lg font-semibold bg-[#8B0000] hover:bg-[#700000] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="w-full py-4 text-lg font-semibold bg-[#831238] hover:bg-[#831238] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 Begin Assessment
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -375,7 +375,7 @@ export default function CourseInterestAssessment() {
             <div className="max-w-md mx-auto">
               <Progress
                 value={progress}
-                className="h-2 bg-gray-200 [&>div]:bg-[#8B0000]"
+                className="h-2 bg-gray-200 [&>div]:bg-[#831238]"
               />
               <div className="text-sm text-gray-600 mt-2">
                 {formatPercentage(progress)} Complete
@@ -393,7 +393,7 @@ export default function CourseInterestAssessment() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <Card className="shadow-2xl border-0 bg-white overflow-hidden">
-                <div className="h-1.5 bg-[#8B0000]" />
+                <div className="h-1.5 bg-[#831238]" />
                 <CardContent className="p-6 sm:p-10">
                   <div className="text-center mb-8 min-h-[120px] flex flex-col justify-center">
                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight">
@@ -414,7 +414,7 @@ export default function CourseInterestAssessment() {
                         htmlFor={`option-${option.value}`}
                         className={`group flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer h-40 ${
                           selectedAnswer === option.value
-                            ? "bg-blue-50 border-[#8B0000] shadow-lg"
+                            ? "bg-blue-50 border-[#831238] shadow-lg"
                             : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                         }`}
                       >
@@ -461,7 +461,7 @@ export default function CourseInterestAssessment() {
               disabled={!selectedAnswer || isTransitioning}
               className={`px-8 py-3 font-semibold transition-all duration-300 rounded-lg text-white ${
                 selectedAnswer && !isTransitioning
-                  ? "bg-[#8B0000] hover:bg-[#700000] shadow-md hover:shadow-lg"
+                  ? "bg-[#831238] hover:bg-[#831238] shadow-md hover:shadow-lg"
                   : "bg-gray-300 cursor-not-allowed"
               }`}
             >
@@ -479,17 +479,17 @@ export default function CourseInterestAssessment() {
     if (!quizResults.length) return null; // Prevent rendering if results are not ready
     const topMatch = quizResults[0];
     const CourseIcons: { [key: string]: React.ReactNode } = {
-      "Law Programmes": <Gavel className="h-7 w-7 text-[#8B0000]" />,
-      "Pharmacy Programmes": <Pill className="h-7 w-7 text-[#8B0000]" />,
-      "Engineering Programmes": <HardHat className="h-7 w-7 text-[#8B0000]" />,
-      "Architecture Programmes": <Home className="h-7 w-7 text-[#8B0000]" />,
-      "Nursing Programmes": <HeartPulse className="h-7 w-7 text-[#8B0000]" />,
+      "Law Programmes": <Gavel className="h-7 w-7 text-[#831238]" />,
+      "Pharmacy Programmes": <Pill className="h-7 w-7 text-[#831238]" />,
+      "Engineering Programmes": <HardHat className="h-7 w-7 text-[#831238]" />,
+      "Architecture Programmes": <Home className="h-7 w-7 text-[#831238]" />,
+      "Nursing Programmes": <HeartPulse className="h-7 w-7 text-[#831238]" />,
       "Physiotherapy Programmes": (
-        <PersonStanding className="h-7 w-7 text-[#8B0000]" />
+        <PersonStanding className="h-7 w-7 text-[#831238]" />
       ),
-      "Dental Programmes": <Stethoscope className="h-7 w-7 text-[#8B0000]" />, // Using Stethoscope as a proxy for dental
+      "Dental Programmes": <Stethoscope className="h-7 w-7 text-[#831238]" />, // Using Stethoscope as a proxy for dental
       "Arts, Science and Humanities Programmes": (
-        <Palette className="h-7 w-7 text-[#8B0000]" />
+        <Palette className="h-7 w-7 text-[#831238]" />
       ),
     };
 
@@ -521,11 +521,11 @@ export default function CourseInterestAssessment() {
                 >
                   <Card
                     className={`relative bg-white text-center p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 h-full cursor-pointer ${
-                      isTopMatch ? "border-2 border-[#8B0000]" : "border"
+                      isTopMatch ? "border-2 border-[#831238]" : "border"
                     }`}
                   >
                     {isTopMatch && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#8B0000] text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2">
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#831238] text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2">
                         <Trophy className="h-4 w-4" /> Top Match
                       </div>
                     )}
@@ -546,7 +546,7 @@ export default function CourseInterestAssessment() {
                         </p>
                         <Progress
                           value={result.averageScore}
-                          className="h-2 mt-1 [&>div]:bg-[#8B0000]"
+                          className="h-2 mt-1 [&>div]:bg-[#831238]"
                         />
                       </div>
                       <p className="text-sm text-gray-500">
@@ -565,9 +565,9 @@ export default function CourseInterestAssessment() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-200/80"
           >
-            <h2 className="text-3xl font-bold text-[#8B0000] flex items-center gap-3 mb-2">
+            <h2 className="text-3xl font-bold text-[#831238] flex items-center gap-3 mb-2">
               {CourseIcons[topMatch.category] || (
-                <GraduationCap className="h-7 w-7 text-[#8B0000]" />
+                <GraduationCap className="h-7 w-7 text-[#831238]" />
               )}
               Recommended Course: {topMatch.category}
             </h2>
@@ -666,7 +666,7 @@ export default function CourseInterestAssessment() {
             >
               <RotateCcw className="mr-2 h-4 w-4" /> Retake Assessment
             </Button>
-            <Button className="px-10 py-3 w-full sm:w-auto text-base font-semibold bg-[#8B0000] hover:bg-[#700000] text-white shadow-lg hover:shadow-xl transition-all rounded-lg">
+            <Button className="px-10 py-3 w-full sm:w-auto text-base font-semibold bg-[#831238] hover:bg-[#831238] text-white shadow-lg hover:shadow-xl transition-all rounded-lg">
               Apply Now
             </Button>
           </div>

@@ -47,13 +47,12 @@ const CoursePageTemplate = () => {
           School of Management Studies
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          The School of Management Studies, founded in 1993, offers value-driven
+          education focused on entrepreneurship, leadership, and social impact.
+          It promotes inclusivity, global partnerships, and strong industry
+          connections, supporting a diverse student body and a large alumni
+          network of 25,000 professionals worldwide. The school aims to empower
+          students to reach their full potential and become change-makers.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +74,23 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          Established in 1993, the School of Management Studies delivers
+          value-based education, research, executive learning, and consultancy
+          with global and corporate linkages. It nurtures entrepreneurial and
+          leadership skills, preparing students for meaningful social and
+          economic contributions. With over 100 international university and
+          industry partnerships, the school offers strong global exposure and
+          learning opportunities. Its alumni network of 25,000+ management
+          professionals spans worldwide, showcasing its influence.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          Programs include BBA, B.Com, MBA, and M.Com, built on a contemporary,
+          practice-oriented curriculum. The school emphasizes inclusivity,
+          empowering students with hearing, speech, and visual impairments. A
+          vibrant learning environment integrates strong alumni engagement and
+          industry collaborations. Students gain from executive education,
+          consultancy projects, and innovation-driven leadership training.
         </p>
       </div>
       {/* Official Programs Section */}

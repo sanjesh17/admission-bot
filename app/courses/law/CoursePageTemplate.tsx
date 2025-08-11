@@ -47,13 +47,15 @@ const CoursePageTemplate = () => {
           School of Law
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          Sathyabama School of Law is evolving to meet societal needs by
+          integrating community spirit into its curriculum. Since its inception,
+          it has focused on strong legal education and interdisciplinary
+          approaches, emphasizing practical skills for real-world practice. The
+          school invests in students' intellectual and personal growth through
+          dynamic leadership programs, events, and initiatives that foster
+          leadership qualities. Known for its discipline, exposure, and
+          dedicated faculty, the School of Law prepares students to become
+          engaged leaders both on campus and beyond.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +77,22 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          The School of Law, established in 2018, offers integrated five-year BA
+          LLB, BBA LLB, B.Com LLB, and a three-year LLB program approved by the
+          Bar Council of India. It focuses on quality legal education with a
+          blend of theory, research, and practical training. Students gain
+          hands-on exposure through moot courts, internships, legal aid clinics,
+          and seminars. Active centres like Centre Lex Environer and the Moot
+          Court Society enhance specialized skills.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          The school hosts vibrant clubs such as the Debate Club, ADR Society,
+          IPR Cell, and Legal Aid Committee. It organizes events including moot
+          court competitions, workshops, and awareness programs. Placement
+          support and internships connect students with leading law firms and
+          organizations. Its infrastructure and dynamic environment prepare
+          graduates for diverse legal careers.
         </p>
       </div>
       {/* Official Programs Section */}

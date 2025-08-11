@@ -47,13 +47,17 @@ const CoursePageTemplate = () => {
           School of Pharmacy
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          The School of Pharmacy is been approved by the Pharmacy Council of
+          India, All India Council of Technical Education and University Grants
+          Commission. The school started its first batch in the academic year of
+          2019-20. The school has 6 modern classrooms, 13 modular laboratories
+          with sophisticated instruments. The school is attached to the general
+          hospital which is situated in the campus of Sathyabama Institute of
+          Science and Technology. Pharmacy School has well-qualified,
+          foreign-trained skilful professional teaching professors with a
+          doctorate or post-graduation degrees. School of Pharmacy motivates and
+          encourages the faculty members to actively participate in research
+          activities.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +79,20 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          The School of Pharmacy, established in 2019-20, is approved by PCI,
+          AICTE, and UGC. It offers B.Pharm, D.Pharm, Pharm.D, and M.Pharm
+          (Pharmaceutics) programs. Modern infrastructure includes six
+          classrooms, thirteen laboratories, and advanced instruments. An
+          attached general hospital provides practical training in dispensing
+          and drug management.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          The curriculum combines innovative teaching with hands-on learning
+          experiences. Industry links, such as with ICON Life Sciences, enhance
+          career readiness. Workshops, conferences, and events like World
+          Pharmacist Day enrich student exposure. Faculty-led research spans
+          pharmacology, pharmaceutical chemistry, and pharmacy practice.
         </p>
       </div>
       {/* Official Programs Section */}

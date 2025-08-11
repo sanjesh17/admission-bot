@@ -47,13 +47,13 @@ const CoursePageTemplate = () => {
           School of Dental Sciences
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          Sathyabama Dental College and Hospital, established in 2009, offers a
+          five-year undergraduate dental program and three-year postgraduate
+          courses in Orthodontics, Conservative Dentistry, and Pediatric
+          Dentistry. Founded to train compassionate dentists with strong
+          scientific knowledge, the college focuses on modern dental education
+          aligned with Dental Council of India guidelines and aims to advance
+          dental research and international collaboration.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +75,21 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          The School of Dental Sciences offers a 5-year BDS and MDS programs in
+          Pedodontics, Conservative Dentistry, and Orthodontics. Facilities
+          include pre-clinical labs, smart classrooms, and a 100-bed hospital
+          with dental clinics. Fully digitalized departments feature
+          nano-material and animal-research labs for innovation. Experienced
+          faculty provide interactive teaching, career guidance, and
+          scholarships.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          The school covers all dental specialties, from Prosthodontics to
+          Public Health Dentistry. Students train in modern clinics with digital
+          radiography and implantology facilities. Workshops, seminars, and
+          events like “BEYOND THE BEAM” enhance skills. Collaborations support
+          dental camps, outreach programs, and student exchanges.
         </p>
       </div>
       {/* Official Programs Section */}

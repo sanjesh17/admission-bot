@@ -1,11 +1,11 @@
-import React from "react"
-import Image from "next/image"
-import TopRecruiters from "../../../components/TopRecruiters"
+import React from "react";
+import Image from "next/image";
+import TopRecruiters from "../../../components/TopRecruiters";
 
 type CourseCardProps = {
-  program: string
-  image: string
-}
+  program: string;
+  image: string;
+};
 
 const CourseCard = ({ program, image }: CourseCardProps) => {
   return (
@@ -24,8 +24,8 @@ const CourseCard = ({ program, image }: CourseCardProps) => {
         <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#831238] transition-all duration-300 group-hover:w-full"></span>
       </h1>
     </div>
-  )
-}
+  );
+};
 
 const CoursePageTemplate = () => {
   const topRecruiters = [
@@ -39,7 +39,7 @@ const CoursePageTemplate = () => {
     "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg",
     "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg",
     "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-  ]
+  ];
   return (
     <div className="max-w-7xl mx-auto">
       <div className="flex px-24 pt-24 pb-8 gap-40">
@@ -47,13 +47,13 @@ const CoursePageTemplate = () => {
           School of Allied Health Sciences
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          The School of Allied Health Sciences at Sathyabama offers
+          multidisciplinary, career-oriented programs in healthcare that don’t
+          require a medical degree. Launched in 2020, the B.Sc. Medical
+          Laboratory Technology and B.Sc. Clinical Nutrition & Dietetics
+          programs have recently shifted to a semester system. The school
+          emphasizes a team approach to healthcare, integrating medical
+          technologies and nutrition to benefit students and society.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +75,23 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          The School of Allied Health Sciences offers undergraduate B.Sc.
+          programs in fields like Clinical Nutrition & Dietetics, Medical Lab
+          Technology, and Medical Laboratory Technology. Programs emphasize
+          professional readiness, combining theoretical instruction with
+          hands-on lab practice. Courses are regulated within the institution's
+          multi-disciplinary framework for health sciences. Allied health
+          students benefit from Sathyabama's integrated hospital facility for
+          practical exposure.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          The school's curriculum molds students for clinical roles in
+          hospitals, labs, dietetics, and diagnostics. Experienced faculty guide
+          learners through evolving healthcare technologies and practices.
+          Workshops, seminars, and interdepartmental interactions enhance
+          real-world skills and awareness. Graduates are prepared for careers in
+          healthcare systems, diagnostics, and allied professions.
         </p>
       </div>
       {/* Official Programs Section */}
@@ -156,7 +152,7 @@ const CoursePageTemplate = () => {
         <TopRecruiters logos={topRecruiters} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CoursePageTemplate
+export default CoursePageTemplate;

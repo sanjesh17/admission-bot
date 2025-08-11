@@ -47,13 +47,13 @@ const CoursePageTemplate = () => {
           School of Nursing
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          Sathyabama College of Nursing, established in 2019-20 and approved by
+          government and nursing councils, offers undergraduate nursing training
+          focused on problem-solving, critical thinking, and advanced patient
+          care technologies. The college boasts motivated faculty and encourages
+          excellence in academics, sports, and co-curricular activities. It
+          emphasizes compassionate care, preparing graduates to be compassionate
+          ambassadors in nursing.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +75,19 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          The School of Nursing, established in 2019-20, offers a B.Sc. Nursing
+          program. It is approved by the Government of Tamil Nadu, INC, and the
+          state nursing council. Facilities include smart classrooms, advanced
+          laboratories, and clinical training access. Students are mentored by
+          experienced faculty with active research involvement.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          The curriculum emphasizes compassionate, evidence-based healthcare
+          practice. MoUs with leading hospitals provide extensive hands-on
+          clinical exposure. Community outreach covers health awareness,
+          maternal care, and hygiene programs. Graduates are prepared for
+          careers in patient care, public health, and leadership.
         </p>
       </div>
       {/* Official Programs Section */}

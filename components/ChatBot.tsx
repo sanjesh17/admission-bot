@@ -1,84 +1,87 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from 'react'
-import { Button } from '@/components/ui/button'
-import { MessageCircle, X, Send, GraduationCap, RefreshCw } from 'lucide-react'
-import ReactMarkdown from 'react-markdown'
-import { Message } from '@/types/chat'
+import { useState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, X, Send, GraduationCap, RefreshCw } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import { Message } from "@/types/chat";
 
 const ChatBot = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { 
-      type: 'bot', 
-      text: 'Hello! I\'m your Sathyabama assistant. How can I help you today?',
+    {
+      type: "bot",
+      text: "Hello! I'm your Sathyabama assistant. How can I help you today?",
       options: [
-        'Admission Process',
-        'Programs Offered',
-        'Fee Structure',
-        'Campus Life',
-        'Contact Information'
-      ]
-    }
-  ])
-  const [input, setInput] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
+        "Admission Process",
+        "Programs Offered",
+        "Fee Structure",
+        "Campus Life",
+        "Contact Information",
+      ],
+    },
+  ]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll to bottom when messages change
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    scrollToBottom();
+  }, [messages]);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const handleRefresh = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     setMessages([
-      { 
-        type: 'bot', 
-        text: 'Hello! I\'m your Sathyabama assistant. How can I help you today?',
+      {
+        type: "bot",
+        text: "Hello! I'm your Sathyabama assistant. How can I help you today?",
         options: [
-          'Admission Process',
-          'Programs Offered',
-          'Fee Structure',
-          'Campus Life',
-          'Contact Information'
-        ]
-      }
-    ])
+          "Admission Process",
+          "Programs Offered",
+          "Fee Structure",
+          "Campus Life",
+          "Contact Information",
+        ],
+      },
+    ]);
     setTimeout(() => {
       setIsLoading(false);
-    }, 500)
-  }
+    }, 500);
+  };
 
   const fetchBotResponse = async (userInput: string): Promise<Message> => {
     try {
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
-          'Content-Type': 'application/json',
-          'HTTP-Referer': window.location.href,
-          'X-Title': 'Sathyabama University Chatbot'
-        },
-        body: JSON.stringify({
-          model: "deepseek/deepseek-chat-v3-0324:free",
-          messages: [
-            {
-              role: "system",
-              content: "You are a helpful assistant for Sathyabama University. Provide concise, accurate information about admissions, programs, fees, campus life, and contact details. Use markdown formatting to structure your responses with headings, bullet points, and emphasis where appropriate. Strictly do not answer any personal information, just answer information about the University and nothing else. Keep responses under 5 - 10 lines."
-            },
-            {
-              role: "user",
-              content: userInput
-            }
-          ]
-        })
-      });
-
+      const response = await fetch(
+        "https://openrouter.ai/api/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENROUTER_API_KEY}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": window.location.href,
+            "X-Title": "Sathyabama University Chatbot",
+          },
+          body: JSON.stringify({
+            model: "mistralai/mistral-small-3.2-24b-instruct:free",
+            messages: [
+              {
+                role: "system",
+                content:
+                  "You are a helpful assistant for Sathyabama University. Provide concise, accurate information about admissions, programs, fees, campus life, and contact details. Use markdown formatting to structure your responses with headings, bullet points, and emphasis where appropriate. Strictly do not answer any personal information, just answer information about the University and nothing else. Keep responses under 5 - 10 lines.",
+              },
+              {
+                role: "user",
+                content: userInput,
+              },
+            ],
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`API request failed with status ${response.status}`);
@@ -86,35 +89,39 @@ const ChatBot = () => {
 
       const data = await response.json();
       console.log(data);
-      const botText = data.choices[0]?.message?.content || "I couldn't process that request. Please try again.";
+      const botText =
+        data.choices[0]?.message?.content ||
+        "I couldn't process that request. Please try again.";
 
-      // Determine if we should show options based on the context
-      const showOptions = !userInput.toLowerCase().includes('specific') && 
-                         !userInput.toLowerCase().includes('detail');
+      const showOptions =
+        !userInput.toLowerCase().includes("specific") &&
+        !userInput.toLowerCase().includes("detail");
 
       return {
-        type: 'bot',
+        type: "bot",
         text: botText,
-        options: showOptions ? [
-          'Admission Process',
-          'Programs Offered',
-          'Fee Structure',
-          'Campus Life',
-          'Contact Information'
-        ] : undefined
+        options: showOptions
+          ? [
+              "Admission Process",
+              "Programs Offered",
+              "Fee Structure",
+              "Campus Life",
+              "Contact Information",
+            ]
+          : undefined,
       };
     } catch (error) {
-      console.error('Error fetching bot response:', error);
+      console.error("Error fetching bot response:", error);
       return {
-        type: 'bot',
+        type: "bot",
         text: "I'm having trouble connecting to the information service. Please try again later or ask about:\n\n- Admission Process\n- Programs Offered\n- Fee Structure\n- Campus Life\n- Contact Information",
         options: [
-          'Admission Process',
-          'Programs Offered',
-          'Fee Structure',
-          'Campus Life',
-          'Contact Information'
-        ]
+          "Admission Process",
+          "Programs Offered",
+          "Fee Structure",
+          "Campus Life",
+          "Contact Information",
+        ],
       };
     }
   };
@@ -123,51 +130,57 @@ const ChatBot = () => {
     if (!input.trim()) return;
 
     // Add user message
-    const userMessage: Message = { type: 'user', text: input };
-    setMessages(prev => [...prev, userMessage]);
-    setInput('');
+    const userMessage: Message = { type: "user", text: input };
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
     setIsLoading(true);
 
     try {
       const botResponse = await fetchBotResponse(input);
-      setMessages(prev => [...prev, botResponse]);
+      setMessages((prev) => [...prev, botResponse]);
     } catch (error) {
-      setMessages(prev => [...prev, { 
-        type: 'bot', 
-        text: "Sorry, I encountered an error. Please try again.", 
-        options: [
-          'Admission Process',
-          'Programs Offered',
-          'Fee Structure',
-          'Campus Life',
-          'Contact Information'
-        ]
-      }]);
+      setMessages((prev) => [
+        ...prev,
+        {
+          type: "bot",
+          text: "Sorry, I encountered an error. Please try again.",
+          options: [
+            "Admission Process",
+            "Programs Offered",
+            "Fee Structure",
+            "Campus Life",
+            "Contact Information",
+          ],
+        },
+      ]);
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleQuickOption = async (option: string) => {
-    const userMessage: Message = { type: 'user', text: option };
-    setMessages(prev => [...prev, userMessage]);
+    const userMessage: Message = { type: "user", text: option };
+    setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
 
     try {
       const botResponse = await fetchBotResponse(option);
-      setMessages(prev => [...prev, botResponse]);
+      setMessages((prev) => [...prev, botResponse]);
     } catch (error) {
-      setMessages(prev => [...prev, { 
-        type: 'bot', 
-        text: "Sorry, I encountered an error. Please try again.", 
-        options: [
-          'Admission Process',
-          'Programs Offered',
-          'Fee Structure',
-          'Campus Life',
-          'Contact Information'
-        ]
-      }]);
+      setMessages((prev) => [
+        ...prev,
+        {
+          type: "bot",
+          text: "Sorry, I encountered an error. Please try again.",
+          options: [
+            "Admission Process",
+            "Programs Offered",
+            "Fee Structure",
+            "Campus Life",
+            "Contact Information",
+          ],
+        },
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -176,19 +189,34 @@ const ChatBot = () => {
   // Custom components for markdown rendering
   const MarkdownComponents = {
     // Override h1 rendering
-    h1: ({ node, ...props }) => <h1 className="text-lg font-bold mb-2" {...props} />,
+    h1: ({ node, ...props }) => (
+      <h1 className="text-lg font-bold mb-2" {...props} />
+    ),
     // Override h2 rendering
-    h2: ({ node, ...props }) => <h2 className="text-md font-bold mb-1" {...props} />,
+    h2: ({ node, ...props }) => (
+      <h2 className="text-md font-bold mb-1" {...props} />
+    ),
     // Override p rendering
     p: ({ node, ...props }) => <p className="mb-2" {...props} />,
     // Override ul rendering
-    ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2" {...props} />,
+    ul: ({ node, ...props }) => (
+      <ul className="list-disc pl-4 mb-2" {...props} />
+    ),
     // Override ol rendering
-    ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2" {...props} />,
+    ol: ({ node, ...props }) => (
+      <ol className="list-decimal pl-4 mb-2" {...props} />
+    ),
     // Override li rendering
     li: ({ node, ...props }) => <li className="mb-1" {...props} />,
     // Override a rendering
-    a: ({ node, ...props }) => <a className="text-blue-600 underline" target="_blank" rel="noopener noreferrer" {...props} />,
+    a: ({ node, ...props }) => (
+      <a
+        className="text-blue-600 underline"
+        target="_blank"
+        rel="noopener noreferrer"
+        {...props}
+      />
+    ),
     // Override strong rendering
     strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
     // Override em rendering
@@ -221,7 +249,9 @@ const ChatBot = () => {
                 aria-label="Refresh chat"
                 disabled={isLoading}
               >
-                <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+                <RefreshCw
+                  className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`}
+                />
               </Button>
               <Button
                 variant="ghost"
@@ -239,19 +269,21 @@ const ChatBot = () => {
               <div key={index}>
                 <div
                   className={`flex ${
-                    message.type === 'user' ? 'justify-end' : 'justify-start'
+                    message.type === "user" ? "justify-end" : "justify-start"
                   }`}
                 >
                   <div
                     className={`max-w-[85%] rounded-lg p-3 ${
-                      message.type === 'user'
-                        ? 'bg-[#831238] text-white'
-                        : 'bg-gray-100 text-gray-800'
+                      message.type === "user"
+                        ? "bg-[#831238] text-white"
+                        : "bg-gray-100 text-gray-800"
                     }`}
                   >
-                    {message.type === 'user' ? (
-                      message.text.split('\n').map((line, i) => (
-                        <p key={i} className="mb-1 last:mb-0">{line}</p>
+                    {message.type === "user" ? (
+                      message.text.split("\n").map((line, i) => (
+                        <p key={i} className="mb-1 last:mb-0">
+                          {line}
+                        </p>
                       ))
                     ) : (
                       <ReactMarkdown components={MarkdownComponents}>
@@ -260,7 +292,7 @@ const ChatBot = () => {
                     )}
                   </div>
                 </div>
-                {message.options && message.type === 'bot' && (
+                {message.options && message.type === "bot" && (
                   <div className="flex flex-wrap gap-2 mt-2 ml-1">
                     {message.options.map((option, i) => (
                       <Button
@@ -297,7 +329,7 @@ const ChatBot = () => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                onKeyPress={(e) => e.key === "Enter" && handleSend()}
                 placeholder="Type your message..."
                 className="flex-1 rounded-md p-2 border focus:outline-none focus:ring-2 focus:ring-[#831238] text-sm"
                 aria-label="Type your message"
@@ -319,7 +351,7 @@ const ChatBot = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ChatBot
+export default ChatBot;

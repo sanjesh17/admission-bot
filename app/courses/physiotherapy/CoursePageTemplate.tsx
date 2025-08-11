@@ -47,13 +47,12 @@ const CoursePageTemplate = () => {
           School of Physiotherapy
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          Sathyabama College of Physiotherapy, established in 2022, offers a
+          four-and-a-half-year undergraduate program aimed at training skilled
+          physiotherapists with strong scientific knowledge and a commitment to
+          service. Affiliated with a general hospital on campus, the school
+          features qualified faculty with advanced degrees and actively promotes
+          research involvement among both staff and students.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +74,20 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          The School of Physiotherapy offers a 4-year full-time Bachelor of
+          Physiotherapy (BPT) program. Eligibility requires 10+2 with Physics,
+          Chemistry, and Biology with at least 50% marks. An on-campus general
+          hospital houses a dedicated physiotherapy department for training.
+          Facilities include radiology, diagnostic labs, and emergency care for
+          clinical exposure.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          The program prioritizes hands-on learning through extensive
+          hospital-based practice. Qualified faculty mentor students in core
+          physiotherapy skills and evidence-based care. Internships help refine
+          clinical expertise in real healthcare environments. Graduates are
+          prepared for impactful careers in rehabilitation and patient care.
         </p>
       </div>
       {/* Official Programs Section */}

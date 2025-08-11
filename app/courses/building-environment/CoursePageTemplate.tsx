@@ -47,13 +47,14 @@ const CoursePageTemplate = () => {
           School of Building and Environment
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology boasts strong industry tie-ups and a consistent placement
-          record above 92%, with offers up to ₹41 LPA. Students have contributed
-          to projects like the Sathyabama SAT and secured global opportunities
-          through international programs. The school actively supports
-          innovation, research, and skill development through clubs and
-          sponsored projects.
+          The School of Building and Environment at Sathyabama, with 25 years of
+          experience, offers undergraduate programs in Architecture, Civil
+          Engineering, and Design, along with postgraduate and doctoral studies.
+          The school emphasizes experiential learning, critical thinking, and
+          innovation, supported by regular industry interaction. It fosters
+          creativity through workshops, tours, and seminars, while encouraging
+          students and faculty to engage in community activities and design
+          solutions that serve societal needs.
         </p>
       </div>
       <div className="max-w-7xl mx-auto px-24 py-2">
@@ -75,27 +76,21 @@ const CoursePageTemplate = () => {
           About the Program
         </h1>
         <p className="text-gray-500">
-          The School of Computing at Sathyabama Institute of Science and
-          Technology comprises the Departments of Computer Science and
-          Engineering and Information Technology, offering diverse academic
-          programs from undergraduate to doctoral levels. With NBA accreditation
-          and specializations in cutting-edge technologies, the school is
-          committed to academic excellence and industry relevance. Strategic
-          MoUs with top companies like IBM, Oracle, Capgemini, and others enable
-          students to gain hands-on experience and stay aligned with industry
-          demands.
+          The School of Building & Environment offers programs in Architecture,
+          Civil Engineering, Interior Design, and Fashion Design. It also
+          provides postgraduate and doctoral programs in specialized areas of
+          design and engineering. Learning is enriched through workshops, site
+          visits, seminars, and symposiums. Graduates work with leading firms
+          such as L&T Construction and Jones Lang LaSalle.
         </p>
         <br />
         <p className="text-gray-500">
-          The school consistently records over 92% placement rates, with top
-          salary packages reaching ₹ 41 LPA. Students are guided from their
-          first year and encouraged to participate in innovation, research, and
-          development activities resulting in 30 patents, 4 copyrights, and ₹2
-          crore worth of sponsored projects. Notable achievements include
-          contributing to the Sathyabama SAT and representing the institution at
-          global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students global
-          exposure and career readiness.
+          The school fosters innovation through industry collaborations and
+          consultancy projects. Exchange programs provide global exposure for
+          students and faculty members. Events like the UN-Habitat Urban
+          Thinkers Campus address sustainable development goals. Practical
+          training prepares graduates for impactful careers in the built
+          environment.
         </p>
       </div>
       {/* Official Programs Section */}

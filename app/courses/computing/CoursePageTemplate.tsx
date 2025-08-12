@@ -156,7 +156,7 @@ const CoursePageTemplate = () => {
           crore worth of sponsored projects. Notable achievements include
           contributing to the Sathyabama SAT and representing the institution at
           global platforms such as NASA, Google, and IBM. International
-          internships and exchange programs further enhance students' global
+          internships and exchange programs further enhance students global
           exposure and career readiness.
         </p>
       </div>

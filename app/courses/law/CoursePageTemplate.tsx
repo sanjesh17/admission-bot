@@ -1,11 +1,11 @@
-import React from "react";
-import Image from "next/image";
-import TopRecruiters from "../../../components/TopRecruiters";
+import React from "react"
+import Image from "next/image"
+import TopRecruiters from "../../../components/TopRecruiters"
 
 type CourseCardProps = {
-  program: string;
-  image: string;
-};
+  program: string
+  image: string
+}
 
 const CourseCard = ({ program, image }: CourseCardProps) => {
   return (
@@ -24,9 +24,42 @@ const CourseCard = ({ program, image }: CourseCardProps) => {
         <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#831238] transition-all duration-300 group-hover:w-full"></span>
       </h1>
     </div>
-  );
-};
+  )
+}
+const Courses = [
+  {
+    program: "B.A. LL.B. (Hons.)",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "	B.B.A. LL.B. (Hons.)",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "B.Com.LL.B. (Hons.)",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "LL.B.",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  
+]
 
+const PGCourses = [
+  {
+    program: "	LL.M - Constitutional Law and Legal Order",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "LL.M - Intellectual Property Lawse",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+  {
+    program: "LL.M - Criminal Law",
+    image: "https://wallpaperaccess.com/full/3441817.jpg",
+  },
+]
 const CoursePageTemplate = () => {
   const topRecruiters = [
     "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
@@ -39,7 +72,7 @@ const CoursePageTemplate = () => {
     "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg",
     "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg",
     "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-  ];
+  ]
   return (
     <div className="max-w-7xl mx-auto">
       <div className="flex px-24 pt-24 pb-8 gap-40">
@@ -51,7 +84,7 @@ const CoursePageTemplate = () => {
           integrating community spirit into its curriculum. Since its inception,
           it has focused on strong legal education and interdisciplinary
           approaches, emphasizing practical skills for real-world practice. The
-          school invests in students' intellectual and personal growth through
+          school invests in students intellectual and personal growth through
           dynamic leadership programs, events, and initiatives that foster
           leadership qualities. Known for its discipline, exposure, and
           dedicated faculty, the School of Law prepares students to become
@@ -98,13 +131,31 @@ const CoursePageTemplate = () => {
       {/* Official Programs Section */}
       <div className="px-24 py-8">
         <h1 className="font-serif italic text-5xl pb-4 text-[#831238]">
-          Official Programs
+          Programmes Offered
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-20">
-          <CourseCard
-            program="Computer Science Engineering"
-            image="https://wallpaperaccess.com/full/3441817.jpg"
-          />
+        <h1 className="font-serif italic text-3xl pb-4 text-[#831238] underline">
+          UG Programmes
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+          {Courses.map((course, index) => (
+            <CourseCard
+              key={index}
+              program={course.program}
+              image={course.image}
+            />
+          ))}
+        </div>
+        <h1 className="font-serif italic text-3xl pb-4 text-[#831238] underline">
+          PG And Ph.D Programmes
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
+          {PGCourses.map((course, index) => (
+            <CourseCard
+              key={index}
+              program={course.program}
+              image={course.image}
+            />
+          ))}
         </div>
       </div>
       {/* Dean Information Section */}
@@ -154,7 +205,7 @@ const CoursePageTemplate = () => {
         <TopRecruiters logos={topRecruiters} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CoursePageTemplate;
+export default CoursePageTemplate

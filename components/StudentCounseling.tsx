@@ -140,6 +140,32 @@ const StudentCounseling = () => {
     return formData.selectedCourses.length === 3;
   };
 
+  const storeInfo = async () => {
+    const info = {
+      studentName: formData.studentName,
+      studentPhone: formData.studentPhone,
+      tenthMarks: formData.tenthMarks,
+      twelfthMarks: formData.twelfthMarks,
+      studentStream: formData.courseAfterTenth,
+      studentPrograms: formData.selectedCourses,
+    };
+    try {
+      const response = await fetch(`${process.env.API_URL}/api/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to store information");
+      }
+    } catch (error) {
+      console.error("Error storing information:", error);
+    }
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-md">
@@ -371,11 +397,10 @@ const StudentCounseling = () => {
 
             <Button
               className="w-full bg-[#800000] hover:bg-[#600000]"
-              onClick={() => (window.location.href = "/research")}
+              onClick={storeInfo}
             >
               Schedule Counseling Session
             </Button>
-
             <Button
               variant="outline"
               className="w-full"

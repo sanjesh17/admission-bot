@@ -65,16 +65,16 @@ const PhDCourses = [
 
 const CoursePageTemplate = () => {
   const topRecruiters = [
-    "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/1/15/Deloitte_Logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/b/b1/Tata_Consultancy_Services_Logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/9/95/Infosys_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/7_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/24_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/22_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/18_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/15_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/11_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/6_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/4_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/10_0.png",
+    "https://www.sathyabama.ac.in/sites/default/files/2022-06/13_0.png",
   ]
   return (
     <div className="max-w-7xl mx-auto">

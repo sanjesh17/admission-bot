@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { QUESTION_BANK, PLACEMENT_DATA } from "./data";
-import type { PlacementData } from "./data"; // Import the type for use in our interfaces
+import type { PlacementData } from "./data";
 import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -30,9 +30,57 @@ import {
   Stethoscope,
   Palette,
 } from "lucide-react";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+  Tooltip,
+  ResponsiveContainer
+} from "recharts";
 
-// --- INTERFACES (Specific to this page's state) ---
+// --- NEW CONSTANTS FOR PIE CHART ---
+const PIE_COLORS: string[] = ["#3B82F6", "#8B5CF6", "#10B981"]; // blue, purple, green
 
+// --- TYPES FOR HELPER FUNCTIONS ---
+interface PieChartDataItem {
+  name: string;
+  value: number;
+  color: string;
+}
+
+interface StrengthsWeaknessesResult {
+  strengths: string[];
+  weaknesses: string[];
+}
+
+// --- NEW HELPER FUNCTIONS ---
+const preparePieChartData = (quizResults: QuizResult[]): PieChartDataItem[] => {
+  return quizResults.slice(0, 3).map((result, index) => ({
+    name: result.category,
+    value: result.averageScore,
+    color: PIE_COLORS[index % PIE_COLORS.length],
+  }));
+};
+
+const getStrengthsAndWeaknesses = (topMatch: QuizResult): StrengthsWeaknessesResult => {
+  // Mock data - replace with actual data from your backend
+  const strengths: string[] = [
+    "Strong Analytical Skills",
+    "Technical Problem Solving", 
+    "Mathematical Aptitude"
+  ];
+  
+  const weaknesses: string[] = [
+    "Limited Creative Expression",
+    "Less Interest in Theory",
+    "Minimal Biology Exposure"
+  ];
+  
+  return { strengths, weaknesses };
+};
+
+// --- INTERFACES (unchanged) ---
 interface Question {
   id: number;
   question: string;
@@ -43,12 +91,16 @@ interface QuizResult {
   category: string;
   averageScore: number;
   total: number;
-  placementInfo: PlacementData; // This type is imported from './data'
+  placementInfo: PlacementData;
 }
 
-// --- CONSTANTS ---
-
-const LIKERT_OPTIONS = [
+// --- CONSTANTS (unchanged) ---
+const LIKERT_OPTIONS: Array<{
+  value: string;
+  label: string;
+  emoji: string;
+  color: string;
+}> = [
   { value: "1", label: "Strongly Disagree", emoji: "😞", color: "bg-red-400" },
   { value: "2", label: "Disagree", emoji: "😐", color: "bg-orange-400" },
   { value: "3", label: "Neutral", emoji: "😊", color: "bg-yellow-400" },
@@ -56,7 +108,7 @@ const LIKERT_OPTIONS = [
   { value: "5", label: "Strongly Agree", emoji: "🤩", color: "bg-indigo-500" },
 ];
 
-const StarRating = ({ rating }: { rating: number }) => {
+const StarRating = ({ rating }: { rating: number }): JSX.Element => {
   const fullStars = Math.floor(rating);
   return (
     <div className="flex items-center gap-1">
@@ -72,21 +124,19 @@ const StarRating = ({ rating }: { rating: number }) => {
   );
 };
 
-// --- MAIN COMPONENT ---
-
-export default function CourseInterestAssessment() {
-  const [currentStep, setCurrentStep] = useState<"start" | "quiz" | "results">(
-    "start"
-  );
+// --- MAIN COMPONENT (start and quiz sections unchanged) ---
+export default function CourseInterestAssessment(): JSX.Element | null {
+  const [currentStep, setCurrentStep] = useState<"start" | "quiz" | "results">("start");
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [userAnswers, setUserAnswers] = useState<number[]>([]);
   const [quizResults, setQuizResults] = useState<QuizResult[]>([]);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [totalQuestionCount, setTotalQuestionCount] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const [totalQuestionCount, setTotalQuestionCount] = useState<number>(0);
 
-  const generateQuestions = useCallback(() => {
+  // All existing functions remain unchanged...
+  const generateQuestions = useCallback((): void => {
     const allQuestions: Question[] = [];
     let questionId = 1;
 
@@ -136,7 +186,7 @@ export default function CourseInterestAssessment() {
     setTotalQuestionCount(shuffled.length);
   }, []);
 
-  const startQuiz = () => {
+  const startQuiz = (): void => {
     generateQuestions();
     setCurrentStep("quiz");
     setCurrentQuestionIndex(0);
@@ -144,11 +194,11 @@ export default function CourseInterestAssessment() {
     setSelectedAnswer("");
   };
 
-  const handleAnswerSelect = (value: string) => {
+  const handleAnswerSelect = (value: string): void => {
     setSelectedAnswer(value);
   };
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = (): void => {
     if (!selectedAnswer) return;
     setIsTransitioning(true);
     const newAnswers = [...userAnswers];
@@ -165,9 +215,8 @@ export default function CourseInterestAssessment() {
     }, 300);
   };
 
-  const handleQuizComplete = (answers: number[]) => {
-    const categoryScores: { [key: string]: { total: number; count: number } } =
-      {};
+  const handleQuizComplete = (answers: number[]): void => {
+    const categoryScores: { [key: string]: { total: number; count: number } } = {};
 
     const activeCategories = [...new Set(questions.map((q) => q.category))];
 
@@ -203,7 +252,7 @@ export default function CourseInterestAssessment() {
     setIsTransitioning(false);
   };
 
-  const restartQuiz = () => {
+  const restartQuiz = (): void => {
     setCurrentStep("start");
     setCurrentQuestionIndex(0);
     setSelectedAnswer("");
@@ -247,11 +296,11 @@ export default function CourseInterestAssessment() {
     setTotalQuestionCount(count);
   }, []);
 
-  const formatPercentage = (score: number) => {
+  const formatPercentage = (score: number): string => {
     return `${Math.round(score)}%`;
   };
 
-  // --- START PAGE ---
+  // --- START PAGE (unchanged) ---
   if (currentStep === "start") {
     return (
       <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-purple-50/20 via-white to-blue-50/20">
@@ -352,7 +401,7 @@ export default function CourseInterestAssessment() {
     );
   }
 
-  // --- QUIZ PAGE ---
+  // --- QUIZ PAGE (unchanged) ---
   if (currentStep === "quiz") {
     const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
     const questionVariants = {
@@ -474,191 +523,273 @@ export default function CourseInterestAssessment() {
     );
   }
 
-  // --- RESULTS PAGE ---
+  // --- RESULTS PAGE (COMPLETELY REDESIGNED) ---
   if (currentStep === "results") {
-    if (!quizResults.length) return null; // Prevent rendering if results are not ready
+    if (!quizResults.length) return null;
+
     const topMatch = quizResults[0];
+    const pieChartData = preparePieChartData(quizResults);
+    const { strengths, weaknesses } = getStrengthsAndWeaknesses(topMatch);
+
     const CourseIcons: { [key: string]: React.ReactNode } = {
       "Law Programmes": <Gavel className="h-7 w-7 text-[#831238]" />,
       "Pharmacy Programmes": <Pill className="h-7 w-7 text-[#831238]" />,
       "Engineering Programmes": <HardHat className="h-7 w-7 text-[#831238]" />,
       "Architecture Programmes": <Home className="h-7 w-7 text-[#831238]" />,
       "Nursing Programmes": <HeartPulse className="h-7 w-7 text-[#831238]" />,
-      "Physiotherapy Programmes": (
-        <PersonStanding className="h-7 w-7 text-[#831238]" />
-      ),
-      "Dental Programmes": <Stethoscope className="h-7 w-7 text-[#831238]" />, // Using Stethoscope as a proxy for dental
-      "Arts, Science and Humanities Programmes": (
-        <Palette className="h-7 w-7 text-[#831238]" />
-      ),
+      "Physiotherapy Programmes": <PersonStanding className="h-7 w-7 text-[#831238]" />,
+      "Dental Programmes": <Stethoscope className="h-7 w-7 text-[#831238]" />,
+      "Arts, Science and Humanities Programmes": <Palette className="h-7 w-7 text-[#831238]" />,
     };
 
     return (
-      <div
-        className="min-h-screen py-12 px-4"
-        style={{ backgroundColor: "#f0f7f7" }}
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-              Assessment Results
+      <div className="min-h-screen py-12 px-4 relative">
+        {/* Background Pattern with low opacity */}
+        <div 
+          className="absolute inset-0 opacity-25 bg-repeat"
+          style={{
+  backgroundImage: `url('https://i.pinimg.com/736x/fd/0f/f3/fd0ff3e83e3404141be7667288d0f995.jpg')`,
+  backgroundSize: '60px 60px'
+}}
+
+        />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              Congratulations! You have successfully completed the Quiz 🎉
             </h1>
-            <p className="text-lg text-gray-600 mt-2">
-              Based on your responses, here are your personalized results and
-              recommendations
+            <p className="text-lg md:text-xl text-gray-600">
+              Here are your <span className="font-bold text-[#831238]">Personalized course recommendations</span>
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {quizResults.slice(0, 3).map((result) => {
-              if (!result.placementInfo) return null; // Safety check
-              const isTopMatch = result.category === topMatch.category;
-              const scoreOutOf5 = (result.averageScore / 100) * 5;
-              return (
-                <Link
-                  key={result.category}
-                  href={`/course/${encodeURIComponent(result.category)}`}
-                  passHref
-                >
-                  <Card
-                    className={`relative bg-white text-center p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 h-full cursor-pointer ${
-                      isTopMatch ? "border-2 border-[#831238]" : "border"
+          </motion.div>
+
+          {/* Scores Visualization Area */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            {/* Left side: Pie Chart */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="bg-white rounded-2xl shadow-xl p-8"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                Your Scores by Program
+              </h2>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={pieChartData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, value }: { name: string; value: number }) => `${Math.round(value)}%`}
+                  >
+                    {pieChartData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={PIE_COLORS[index]} />
+                    ))}
+                  </Pie>
+                  <Tooltip formatter={(value: number) => [`${Math.round(value)}%`, 'Score']} />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            </motion.div>
+
+            {/* Right side: Vertical Clickable Tiles */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="space-y-4"
+            >
+              {quizResults.slice(0, 3).map((result, index) => {
+                const scoreOutOf5 = (result.averageScore / 100) * 5;
+                const isTopMatch = index === 0;
+                
+                return (
+                  <Link
+                    key={result.category}
+                    href={`/course/${encodeURIComponent(result.category)}`}
+                    className={`block p-6 rounded-xl border-2 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer ${
+                      isTopMatch 
+                        ? 'bg-blue-50 border-blue-300 shadow-md' 
+                        : 'bg-white border-gray-200 hover:bg-blue-50'
                     }`}
                   >
-                    {isTopMatch && (
-                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#831238] text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-2">
-                        <Trophy className="h-4 w-4" /> Top Match
-                      </div>
-                    )}
-                    <CardHeader className="p-0 mb-4">
-                      <CardTitle className="text-xl font-bold text-gray-800">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-lg font-bold text-gray-800">
                         {result.category}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0 flex flex-col items-center gap-4">
-                      <div className="font-extrabold text-5xl text-gray-800">
+                      </h3>
+                      {isTopMatch && (
+                        <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                          <Trophy className="h-4 w-4" />
+                          Top Match
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <span className="text-3xl font-bold text-[#831238]">
                         {scoreOutOf5.toFixed(2)}
-                        <span className="text-3xl text-gray-500">/5.0</span>
-                      </div>
+                        <span className="text-lg text-gray-500">/5.0</span>
+                      </span>
                       <StarRating rating={scoreOutOf5} />
-                      <div className="w-full text-left">
-                        <p className="text-sm font-medium text-gray-600">
-                          Overall Score: {formatPercentage(result.averageScore)}
-                        </p>
-                        <Progress
-                          value={result.averageScore}
-                          className="h-2 mt-1 [&>div]:bg-[#831238]"
-                        />
-                      </div>
-                      <p className="text-sm text-gray-500">
-                        {result.total} questions answered
-                      </p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
+                    </div>
+                  </Link>
+                );
+              })}
+            </motion.div>
           </div>
 
+          {/* Strengths & Weaknesses Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+          >
+            {/* Strengths */}
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <h3 className="text-xl font-bold text-green-700 mb-4 flex items-center gap-2">
+                <CheckCircle className="h-6 w-6" />
+                Strengths 
+              </h3>
+              <div className="space-y-3">
+                {strengths.map((strength, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">
+                      {index + 1}
+                    </span>
+                    <div className="flex-1 bg-green-100 rounded-full h-2 overflow-hidden">
+                      <div 
+                        className="bg-green-500 h-full transition-all duration-1000"
+                        style={{ width: `${90 - index * 10}%` }}
+                      />
+                    </div>
+                    <span className="text-gray-700 font-medium">{strength}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Weaknesses */}
+            <div className="bg-white rounded-xl shadow-lg p-6">
+              <h3 className="text-xl font-bold text-red-700 mb-4 flex items-center gap-2">
+                <Target className="h-6 w-6" />
+                Weaknesses
+              </h3>
+              <div className="space-y-3">
+                {weaknesses.map((weakness, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <span className="bg-red-100 text-red-800 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold">
+                      {index + 1}
+                    </span>
+                    <div className="flex-1 bg-red-100 rounded-full h-2 overflow-hidden">
+                      <div 
+                        className="bg-red-500 h-full transition-all duration-1000"
+                        style={{ width: `${70 - index * 15}%` }}
+                      />
+                    </div>
+                    <span className="text-gray-700 font-medium">{weakness}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Recommended Course Section - 4 Column Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-200/80"
+            transition={{ delay: 0.2 }}
+            className="bg-gray-100 rounded-2xl p-8 mb-12"
           >
-            <h2 className="text-3xl font-bold text-[#831238] flex items-center gap-3 mb-2">
-              {CourseIcons[topMatch.category] || (
-                <GraduationCap className="h-7 w-7 text-[#831238]" />
-              )}
-              Recommended Course: {topMatch.category}
-            </h2>
-            <p className="text-gray-600 mb-10 max-w-4xl text-base">
+            <div className="flex items-center gap-3 mb-6">
+              {CourseIcons[topMatch.category] || <GraduationCap className="h-7 w-7 text-[#831238]" />}
+              <h2 className="text-3xl font-bold text-[#831238]">
+                Recommended Course: {topMatch.category}
+              </h2>
+            </div>
+            <p className="text-gray-600 mb-8 text-lg">
               {topMatch.placementInfo.description}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
-                    Course Details
-                  </h3>
-                  <div className="space-y-3 text-base">
-                    <p className="text-gray-700">
-                      <span className="font-bold text-gray-900">Duration:</span>{" "}
-                      {topMatch.placementInfo.duration}
-                    </p>
-                    <p className="text-gray-700">
-                      <span className="font-bold text-gray-900">
-                        Eligibility:
-                      </span>{" "}
-                      {topMatch.placementInfo.eligibility}
-                    </p>
-                    <p className="text-gray-700">
-                      <span className="font-bold text-gray-900">
-                        Average Salary:
-                      </span>{" "}
-                      {topMatch.placementInfo.averageSalary}
-                    </p>
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
-                    Specializations
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {topMatch.placementInfo.specializations.map((spec) => (
-                      <span
-                        key={spec}
-                        className="bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Column 1: Course Details */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">Course Details</h3>
+                <div className="space-y-3">
+                  <p className="text-gray-700">
+                    <span className="font-semibold">Duration:</span><br />
+                    {topMatch.placementInfo.duration}
+                  </p>
+                  <p className="text-gray-700">
+                    <span className="font-semibold">Eligibility:</span><br />
+                    {topMatch.placementInfo.eligibility}
+                  </p>
+                  <p className="text-gray-700">
+                    <span className="font-semibold">Average Salary:</span><br />
+                    {topMatch.placementInfo.averageSalary}
+                  </p>
                 </div>
               </div>
 
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
-                    Career Prospects
-                  </h3>
-                  <ul className="space-y-3">
-                    {topMatch.placementInfo.careerOptions.map((prospect) => (
-                      <li
-                        key={prospect}
-                        className="flex items-center gap-3 text-base text-gray-700"
-                      >
-                        <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                        {prospect}
-                      </li>
-                    ))}
-                  </ul>
+              {/* Column 2: Specializations */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">Specializations</h3>
+                <div className="flex flex-wrap gap-2">
+                  {topMatch.placementInfo.specializations.map((spec) => (
+                    <span
+                      key={spec}
+                      className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full"
+                    >
+                      {spec}
+                    </span>
+                  ))}
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
-                    Top Recruiters
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {topMatch.placementInfo.recruiters.map((rec) => (
-                      <span
-                        key={rec.name}
-                        className="flex items-center gap-2 bg-green-100 text-green-900 text-sm font-semibold pl-2 pr-4 py-1.5 rounded-full"
-                      >
-                        <img
-                          src={rec.logoUrl}
-                          alt={`${rec.name} logo`}
-                          className="h-6 w-6 rounded-full bg-white object-contain"
-                        />
-                        {rec.name}
+              </div>
+
+              {/* Column 3: Career Prospects */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">Career Prospects</h3>
+                <ol className="space-y-2">
+                  {topMatch.placementInfo.careerOptions.slice(0, 4).map((career, index) => (
+                    <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
+                      <span className="bg-green-100 text-green-800 rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                        {index + 1}
                       </span>
-                    ))}
-                  </div>
+                      {career}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Column 4: Top Recruiters */}
+              <div>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">Top Recruiters</h3>
+                <div className="grid grid-cols-3 gap-3">
+                  {topMatch.placementInfo.recruiters.slice(0, 6).map((recruiter: { name: string; logoUrl: string }) => (
+                    <div key={recruiter.name} className="text-center">
+                      <div className="w-12 h-12 mx-auto mb-1 rounded-full overflow-hidden bg-white border-2 border-gray-200 flex items-center justify-center">
+                        <img
+                          src={recruiter.logoUrl}
+                          alt={recruiter.name}
+                          className="w-8 h-8 object-contain"
+                        />
+                      </div>
+                      <span className="text-xs text-gray-600 font-medium">{recruiter.name}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </motion.div>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-12">
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button
               onClick={restartQuiz}
               variant="outline"

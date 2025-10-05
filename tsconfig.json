@@ -32,6 +32,6 @@
     "app/courses/computing/Carousel.jsx",
     "app/courses/computing/CoursePageTemplate.tsx",
     "components/withScrollFadeIn.tsx"
-  ],
+, "app/research/page.tsx"  ],
   "exclude": ["node_modules"]
 }

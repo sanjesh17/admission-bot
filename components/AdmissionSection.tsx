@@ -1,7 +1,8 @@
-import React from "react";
-import AdmissionBg from "../assets/Placement.png";
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import React from "react"
+import AdmissionBg from "../assets/Placement.png"
+import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 
 const AdmissionSection = () => {
   return (
@@ -47,13 +48,15 @@ const AdmissionSection = () => {
           </div>
         </div>
         <br />
-        <button className="px-12 py-4 bg-[#831238] text-white flex items-center justify-center hover:bg-black transition-colors duration-300">
-          View Our Programs
-          <ArrowUpRight className="inline ml-1 stroke-1" />
-        </button>
+        <Link href="https://www.sathyabama.ac.in/admissions/programs-offered">
+          <button className="px-12 py-4 bg-[#831238] text-white flex items-center justify-center hover:bg-black transition-colors duration-300">
+            View Our Programs
+            <ArrowUpRight className="inline ml-1 stroke-1" />
+          </button>
+        </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AdmissionSection;
+export default AdmissionSection

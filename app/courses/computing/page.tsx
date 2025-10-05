@@ -1,12 +1,12 @@
-"use client";
-import React from "react";
-import Carousel from "./Carousel";
-import AboutDepartment from "./AboutDepartment";
-import DeanInfo from "../../../components/DeanInfo";
-import ProgramsOffered from "./ProgramsOffered";
-import TopRecruiters from "@/components/TopRecruiters";
-import CoursePageTemplate from "./CoursePageTemplate";
-import withScrollFadeIn from "@/components/withScrollFadeIn";
+"use client"
+import React from "react"
+import Carousel from "./Carousel"
+import AboutDepartment from "./AboutDepartment"
+import DeanInfo from "../../../components/DeanInfo"
+import ProgramsOffered from "./ProgramsOffered"
+import TopRecruiters from "@/components/TopRecruiters"
+import CoursePageTemplate from "./CoursePageTemplate"
+import withScrollFadeIn from "@/components/withScrollFadeIn"
 
 const page = () => {
   return (
@@ -14,7 +14,7 @@ const page = () => {
       <Carousel />
       <CoursePageTemplate />
     </div>
-  );
-};
+  )
+}
 
-export default withScrollFadeIn(page);
+export default withScrollFadeIn(page)

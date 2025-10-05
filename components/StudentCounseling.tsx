@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 import {
   Dialog,
   DialogContent,
@@ -8,33 +8,33 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
+} from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   BookOpen,
   Calendar,
   GraduationCap,
   ChevronRight,
   ChevronLeft,
-} from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
-import { useNavigation } from "react-day-picker";
+} from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent } from "@/components/ui/card"
+import { useNavigation } from "react-day-picker"
 
 const StudentCounseling = () => {
-  const [open, setOpen] = useState(false);
-  const [currentStep, setCurrentStep] = useState("info");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [open, setOpen] = useState(false)
+  const [currentStep, setCurrentStep] = useState("info")
+  const [selectedDate, setSelectedDate] = useState(null)
   const [formData, setFormData] = useState({
     studentName: "",
     studentPhone: "",
@@ -45,7 +45,7 @@ const StudentCounseling = () => {
     entranceExamScore: "",
     courseAfterTenth: "",
     selectedCourses: [] as string[],
-  });
+  })
 
   const programOptions = [
     "School of Computing",
@@ -61,26 +61,26 @@ const StudentCounseling = () => {
     "School of Bio and Chemical Engineering",
     "School of Mechanical",
     "School of Electrical and Electronics",
-  ];
+  ]
 
   // Open the dialog automatically when component mounts
   useEffect(() => {
     // Small delay to ensure it doesn't interfere with initial page load
     const timer = setTimeout(() => {
-      setOpen(true);
-    }, 1500);
+      setOpen(true)
+    }, 1500)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleCheckboxChange = (checked: boolean) => {
     setFormData((prev) => ({
@@ -89,8 +89,8 @@ const StudentCounseling = () => {
       // Reset entrance exam fields if unchecked
       entranceExamName: checked ? prev.entranceExamName : "",
       entranceExamScore: checked ? prev.entranceExamScore : "",
-    }));
-  };
+    }))
+  }
 
   const handleCourseSelection = (course: string) => {
     setFormData((prev) => {
@@ -99,30 +99,30 @@ const StudentCounseling = () => {
         return {
           ...prev,
           selectedCourses: prev.selectedCourses.filter((c) => c !== course),
-        };
+        }
       }
 
       // If already have 3 selections, don't add more
       if (prev.selectedCourses.length >= 3) {
-        return prev;
+        return prev
       }
 
       // Add the new selection
       return {
         ...prev,
         selectedCourses: [...prev.selectedCourses, course],
-      };
-    });
-  };
+      }
+    })
+  }
 
   const handleSubmitInfo = () => {
-    setCurrentStep("courseSelection");
-  };
+    setCurrentStep("courseSelection")
+  }
 
   const handleSubmitCourses = () => {
-    localStorage.setItem("courses", JSON.stringify(formData.selectedCourses));
-    setCurrentStep("results");
-  };
+    localStorage.setItem("courses", JSON.stringify(formData.selectedCourses))
+    setCurrentStep("results")
+  }
 
   const isInfoComplete = () => {
     return (
@@ -133,12 +133,12 @@ const StudentCounseling = () => {
       formData.courseAfterTenth !== "" &&
       (!formData.hasEntranceExam ||
         (formData.entranceExamName !== "" && formData.entranceExamScore !== ""))
-    );
-  };
+    )
+  }
 
   const isCourseSelectionComplete = () => {
-    return formData.selectedCourses.length === 3;
-  };
+    return formData.selectedCourses.length === 3
+  }
 
   const storeInfo = async () => {
     const info = {
@@ -148,7 +148,7 @@ const StudentCounseling = () => {
       twelfthMarks: formData.twelfthMarks,
       studentStream: formData.courseAfterTenth,
       studentPrograms: formData.selectedCourses,
-    };
+    }
     try {
       const response = await fetch(`${process.env.API_URL}/api/users`, {
         method: "POST",
@@ -156,15 +156,17 @@ const StudentCounseling = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(info),
-      });
+      })
+
+      window.location.href = "/research"
 
       if (!response.ok) {
-        throw new Error("Failed to store information");
+        throw new Error("Failed to store information")
       }
     } catch (error) {
-      console.error("Error storing information:", error);
+      console.error("Error storing information:", error)
     }
-  };
+  }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -418,7 +420,7 @@ const StudentCounseling = () => {
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  );
-};
+  )
+}
 
-export default StudentCounseling;
+export default StudentCounseling

@@ -7,10 +7,16 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/about" className="hover:text-gray-300">
+                <a
+                  href="https://www.sathyabama.ac.in/about-us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300"
+                >
                   About Us
                 </a>
               </li>
+
               <li>
                 <a href="/academics" className="hover:text-gray-300">
                   Academics
@@ -92,7 +98,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

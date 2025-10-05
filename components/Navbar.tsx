@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Logo from "../app/Logo.png";
-import { Button } from "@/components/ui/button";
+import Image from "next/image"
+import Logo from "../app/Logo.png"
+import { Button } from "@/components/ui/button"
 
 const Navbar = () => {
   return (
@@ -9,21 +9,32 @@ const Navbar = () => {
         <Image src={Logo} alt="Sathyabama Logo" width={350} height={50} />
       </div>
       <div className="space-x-4">
-        <Button
-          size="lg"
-          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl font-inter"
+        <a
+          href="https://feeportal.sathyabama.ac.in/account/ug-admission"
+          rel="noopener noreferrer"
         >
-          Apply Now
-        </Button>
-        <Button
-          size="lg"
-          className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl font-inter"
+          <Button
+            size="lg"
+            className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl font-inter"
+          >
+            Apply Now
+          </Button>
+        </a>
+
+        <a
+          href="https://www.sathyabama.ac.in/360view"
+          rel="noopener noreferrer"
         >
-          Virtual Tour
-        </Button>
+          <Button
+            size="lg"
+            className="bg-[#831238] hover:bg-[#831238]/90 rounded-xl font-inter"
+          >
+            Virutal Tour
+          </Button>
+        </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

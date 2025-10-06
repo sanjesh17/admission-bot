@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import {
   Dialog,
   DialogContent,
@@ -47,6 +48,8 @@ const StudentCounseling = () => {
     selectedCourses: [] as string[],
   })
 
+  // ... existing code ...
+
   const programOptions = [
     "School of Computing",
     "School of Building and Environment",
@@ -63,15 +66,65 @@ const StudentCounseling = () => {
     "School of Electrical and Electronics",
   ]
 
+  const streamToPrograms = {
+    science: [
+      "School of Computing",
+      "School of Building and Environment",
+      "School of Pharmacy",
+      "School of Nursing",
+      "School of Physiotherapy",
+      "School of Dental Sciences",
+      "School of Science & Humanities",
+      "School of Allied Health Sciences",
+      "School of Bio and Chemical Engineering",
+      "School of Mechanical",
+      "School of Electrical and Electronics",
+    ],
+    commerce: ["School of Management Studies", "School of Law"],
+    arts: [
+      "School of Law",
+      "School of Management Studies",
+      "School of Science & Humanities",
+    ],
+    diploma: [
+      "School of Building and Environment",
+      "School of Mechanical",
+      "School of Electrical and Electronics",
+      "School of Bio and Chemical Engineering",
+    ],
+    iti: ["School of Allied Health Sciences", "School of Nursing"],
+    other: programOptions,
+  }
+
+  // Add this function to get filtered programs
+  const getFilteredPrograms = () => {
+    if (!formData.courseAfterTenth) return programOptions
+    return (
+      streamToPrograms[
+        formData.courseAfterTenth as keyof typeof streamToPrograms
+      ] || programOptions
+    )
+  }
+
+  const filteredPrograms = getFilteredPrograms()
+
+  // ... existing code ...
+
+  // Open the dialog automatically when component mounts
+  const pathname = usePathname()
+
   // Open the dialog automatically when component mounts
   useEffect(() => {
     // Small delay to ensure it doesn't interfere with initial page load
-    const timer = setTimeout(() => {
-      setOpen(true)
-    }, 1500)
+    if (pathname === "/") {
+      const timer = setTimeout(() => {
+        setOpen(true)
+      }, 1500)
 
-    return () => clearTimeout(timer)
-  }, [])
+      return () => clearTimeout(timer)
+    }
+  }, [pathname]) // Empty dependency array is correct, as we only want this logic to run on mount
+  // =================================================================
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -79,7 +132,13 @@ const StudentCounseling = () => {
   }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    setFormData((prev) => {
+      // Reset selected courses if the stream is changed
+      if (name === "courseAfterTenth") {
+        return { ...prev, [name]: value, selectedCourses: [] }
+      }
+      return { ...prev, [name]: value }
+    })
   }
 
   const handleCheckboxChange = (checked: boolean) => {
@@ -92,28 +151,30 @@ const StudentCounseling = () => {
     }))
   }
 
-  const handleCourseSelection = (course: string) => {
-    setFormData((prev) => {
-      // If already selected, remove it
-      if (prev.selectedCourses.includes(course)) {
-        return {
-          ...prev,
-          selectedCourses: prev.selectedCourses.filter((c) => c !== course),
-        }
-      }
+ const handleCourseSelection = (course: string) => {
+   setFormData((prev) => {
+     // If already selected, remove it
+     if (prev.selectedCourses.includes(course)) {
+       return {
+         ...prev,
+         selectedCourses: prev.selectedCourses.filter((c) => c !== course),
+       }
+     }
 
-      // If already have 3 selections, don't add more
-      if (prev.selectedCourses.length >= 3) {
-        return prev
-      }
+     // Prevent selecting more than 3
+     if (prev.selectedCourses.length >= 3) {
+       alert("You can select a maximum of 3 programs.")
+       return prev
+     }
 
-      // Add the new selection
-      return {
-        ...prev,
-        selectedCourses: [...prev.selectedCourses, course],
-      }
-    })
-  }
+     // Add the new selection
+     return {
+       ...prev,
+       selectedCourses: [...prev.selectedCourses, course],
+     }
+   })
+ }
+
 
   const handleSubmitInfo = () => {
     setCurrentStep("courseSelection")
@@ -136,9 +197,13 @@ const StudentCounseling = () => {
     )
   }
 
-  const isCourseSelectionComplete = () => {
-    return formData.selectedCourses.length === 3
-  }
+ const isCourseSelectionComplete = () => {
+   return (
+     formData.selectedCourses.length >= 1 &&
+     formData.selectedCourses.length <= 3
+   )
+ }
+
 
   const storeInfo = async () => {
     const info = {
@@ -324,9 +389,8 @@ const StudentCounseling = () => {
               <p className="text-sm text-muted-foreground text-center mb-4">
                 Choose any 3 programs you are interested in pursuing
               </p>
-
               <div className="grid grid-cols-2 gap-3">
-                {programOptions.map((program) => (
+                {filteredPrograms.map((program) => (
                   <Card
                     key={program}
                     className={`cursor-pointer transition-all ${
@@ -348,7 +412,6 @@ const StudentCounseling = () => {
                   </Card>
                 ))}
               </div>
-
               <div className="flex justify-between mt-4">
                 <Button
                   variant="outline"
@@ -365,7 +428,6 @@ const StudentCounseling = () => {
                   Next <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
-
               <div className="text-center text-sm text-muted-foreground">
                 Selected: {formData.selectedCourses.length}/3 programs
               </div>

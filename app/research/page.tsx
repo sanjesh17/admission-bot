@@ -545,18 +545,17 @@ export default function CourseInterestAssessment(): JSX.Element | null {
     return (
       <div className="min-h-screen py-12 px-4 relative">
         {/* Background Pattern with low opacity */}
-        <div 
+        <div
           className="absolute inset-0 opacity-25 bg-repeat"
           style={{
-  backgroundImage: `url('https://i.pinimg.com/736x/fd/0f/f3/fd0ff3e83e3404141be7667288d0f995.jpg')`,
-  backgroundSize: '60px 60px'
-}}
-
+            backgroundImage: `url('https://i.pinimg.com/736x/fd/0f/f3/fd0ff3e83e3404141be7667288d0f995.jpg')`,
+            backgroundSize: "60px 60px",
+          }}
         />
-        
+
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
@@ -565,14 +564,17 @@ export default function CourseInterestAssessment(): JSX.Element | null {
               Congratulations! You have successfully completed the Quiz 🎉
             </h1>
             <p className="text-lg md:text-xl text-gray-600">
-              Here are your <span className="font-bold text-[#831238]">Personalized course recommendations</span>
+              Here are your{" "}
+              <span className="font-bold text-[#831238]">
+                Personalized course recommendations
+              </span>
             </p>
           </motion.div>
 
           {/* Scores Visualization Area */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {/* Left side: Pie Chart */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-2xl shadow-xl p-8"
@@ -589,36 +591,43 @@ export default function CourseInterestAssessment(): JSX.Element | null {
                     outerRadius={100}
                     fill="#8884d8"
                     dataKey="value"
-                    label={({ name, value }: { name: string; value: number }) => `${Math.round(value)}%`}
+                    label={({ name, value }: { name: string; value: number }) =>
+                      `${Math.round(value)}%`
+                    }
                   >
                     {pieChartData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={PIE_COLORS[index]} />
                     ))}
                   </Pie>
-                  <Tooltip formatter={(value: number) => [`${Math.round(value)}%`, 'Score']} />
+                  <Tooltip
+                    formatter={(value: number) => [
+                      `${Math.round(value)}%`,
+                      "Score",
+                    ]}
+                  />
                   <Legend />
                 </PieChart>
               </ResponsiveContainer>
             </motion.div>
 
             {/* Right side: Vertical Clickable Tiles */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               className="space-y-4"
             >
               {quizResults.slice(0, 3).map((result, index) => {
-                const scoreOutOf5 = (result.averageScore / 100) * 5;
-                const isTopMatch = index === 0;
-                
+                const scoreOutOf5 = (result.averageScore / 100) * 5
+                const isTopMatch = index === 0
+
                 return (
                   <Link
                     key={result.category}
                     href={`/course/${encodeURIComponent(result.category)}`}
                     className={`block p-6 rounded-xl border-2 transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer ${
-                      isTopMatch 
-                        ? 'bg-blue-50 border-blue-300 shadow-md' 
-                        : 'bg-white border-gray-200 hover:bg-blue-50'
+                      isTopMatch
+                        ? "bg-blue-50 border-blue-300 shadow-md"
+                        : "bg-white border-gray-200 hover:bg-blue-50"
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -640,13 +649,13 @@ export default function CourseInterestAssessment(): JSX.Element | null {
                       <StarRating rating={scoreOutOf5} />
                     </div>
                   </Link>
-                );
+                )
               })}
             </motion.div>
           </div>
 
           {/* Strengths & Weaknesses Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
@@ -655,7 +664,7 @@ export default function CourseInterestAssessment(): JSX.Element | null {
             <div className="bg-white rounded-xl shadow-lg p-6">
               <h3 className="text-xl font-bold text-green-700 mb-4 flex items-center gap-2">
                 <CheckCircle className="h-6 w-6" />
-                Strengths 
+                Strengths
               </h3>
               <div className="space-y-3">
                 {strengths.map((strength, index) => (
@@ -664,12 +673,14 @@ export default function CourseInterestAssessment(): JSX.Element | null {
                       {index + 1}
                     </span>
                     <div className="flex-1 bg-green-100 rounded-full h-2 overflow-hidden">
-                      <div 
+                      <div
                         className="bg-green-500 h-full transition-all duration-1000"
                         style={{ width: `${90 - index * 10}%` }}
                       />
                     </div>
-                    <span className="text-gray-700 font-medium">{strength}</span>
+                    <span className="text-gray-700 font-medium">
+                      {strength}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -688,12 +699,14 @@ export default function CourseInterestAssessment(): JSX.Element | null {
                       {index + 1}
                     </span>
                     <div className="flex-1 bg-red-100 rounded-full h-2 overflow-hidden">
-                      <div 
+                      <div
                         className="bg-red-500 h-full transition-all duration-1000"
                         style={{ width: `${70 - index * 15}%` }}
                       />
                     </div>
-                    <span className="text-gray-700 font-medium">{weakness}</span>
+                    <span className="text-gray-700 font-medium">
+                      {weakness}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -708,7 +721,9 @@ export default function CourseInterestAssessment(): JSX.Element | null {
             className="bg-gray-100 rounded-2xl p-8 mb-12"
           >
             <div className="flex items-center gap-3 mb-6">
-              {CourseIcons[topMatch.category] || <GraduationCap className="h-7 w-7 text-[#831238]" />}
+              {CourseIcons[topMatch.category] || (
+                <GraduationCap className="h-7 w-7 text-[#831238]" />
+              )}
               <h2 className="text-3xl font-bold text-[#831238]">
                 Recommended Course: {topMatch.category}
               </h2>
@@ -720,18 +735,23 @@ export default function CourseInterestAssessment(): JSX.Element | null {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Column 1: Course Details */}
               <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Course Details</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">
+                  Course Details
+                </h3>
                 <div className="space-y-3">
                   <p className="text-gray-700">
-                    <span className="font-semibold">Duration:</span><br />
+                    <span className="font-semibold">Duration:</span>
+                    <br />
                     {topMatch.placementInfo.duration}
                   </p>
                   <p className="text-gray-700">
-                    <span className="font-semibold">Eligibility:</span><br />
+                    <span className="font-semibold">Eligibility:</span>
+                    <br />
                     {topMatch.placementInfo.eligibility}
                   </p>
                   <p className="text-gray-700">
-                    <span className="font-semibold">Average Salary:</span><br />
+                    <span className="font-semibold">Average Salary:</span>
+                    <br />
                     {topMatch.placementInfo.averageSalary}
                   </p>
                 </div>
@@ -739,7 +759,9 @@ export default function CourseInterestAssessment(): JSX.Element | null {
 
               {/* Column 2: Specializations */}
               <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Specializations</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">
+                  Specializations
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {topMatch.placementInfo.specializations.map((spec) => (
                     <span
@@ -754,35 +776,48 @@ export default function CourseInterestAssessment(): JSX.Element | null {
 
               {/* Column 3: Career Prospects */}
               <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Career Prospects</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">
+                  Career Prospects
+                </h3>
                 <ol className="space-y-2">
-                  {topMatch.placementInfo.careerOptions.slice(0, 4).map((career, index) => (
-                    <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                      <span className="bg-green-100 text-green-800 rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
-                        {index + 1}
-                      </span>
-                      {career}
-                    </li>
-                  ))}
+                  {topMatch.placementInfo.careerOptions
+                    .slice(0, 4)
+                    .map((career, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-2 text-sm text-gray-700"
+                      >
+                        <span className="bg-green-100 text-green-800 rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
+                          {index + 1}
+                        </span>
+                        {career}
+                      </li>
+                    ))}
                 </ol>
               </div>
 
               {/* Column 4: Top Recruiters */}
               <div>
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Top Recruiters</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-4">
+                  Top Recruiters
+                </h3>
                 <div className="grid grid-cols-3 gap-3">
-                  {topMatch.placementInfo.recruiters.slice(0, 6).map((recruiter: { name: string; logoUrl: string }) => (
-                    <div key={recruiter.name} className="text-center">
-                      <div className="w-12 h-12 mx-auto mb-1 rounded-full overflow-hidden bg-white border-2 border-gray-200 flex items-center justify-center">
-                        <img
-                          src={recruiter.logoUrl}
-                          alt={recruiter.name}
-                          className="w-8 h-8 object-contain"
-                        />
+                  {topMatch.placementInfo.recruiters
+                    .slice(0, 6)
+                    .map((recruiter: { name: string; logoUrl: string }) => (
+                      <div key={recruiter.name} className="text-center">
+                        <div className="w-12 h-12 mx-auto mb-1 rounded-full overflow-hidden bg-white border-2 border-gray-200 flex items-center justify-center">
+                          <img
+                            src={recruiter.logoUrl}
+                            alt={recruiter.name}
+                            className="w-8 h-8 object-contain"
+                          />
+                        </div>
+                        <span className="text-xs text-gray-600 font-medium">
+                          {recruiter.name}
+                        </span>
                       </div>
-                      <span className="text-xs text-gray-600 font-medium">{recruiter.name}</span>
-                    </div>
-                  ))}
+                    ))}
                 </div>
               </div>
             </div>
@@ -797,13 +832,18 @@ export default function CourseInterestAssessment(): JSX.Element | null {
             >
               <RotateCcw className="mr-2 h-4 w-4" /> Retake Assessment
             </Button>
-            <Button className="px-10 py-3 w-full sm:w-auto text-base font-semibold bg-[#831238] hover:bg-[#831238] text-white shadow-lg hover:shadow-xl transition-all rounded-lg">
-              Apply Now
-            </Button>
+            <a
+              href="https://feeportal.sathyabama.ac.in/account/ug-admission"
+              rel="noopener noreferrer"
+            >
+              <Button className="px-10 py-3 w-full sm:w-auto text-base font-semibold bg-[#831238] hover:bg-[#831238] text-white shadow-lg hover:shadow-xl transition-all rounded-lg">
+                Apply Now
+              </Button>
+            </a>
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   return null;

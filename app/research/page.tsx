@@ -1,14 +1,26 @@
-"use client";
-import Link from "next/link";
-import { QUESTION_BANK, PLACEMENT_DATA } from "./data";
-import type { PlacementData } from "./data";
-import { useState, useEffect, useCallback } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
-import { motion, AnimatePresence } from "framer-motion";
+"use client"
+import Link from "next/link"
+import { QUESTION_BANK, PLACEMENT_DATA } from "./data"
+import type { PlacementData } from "./data"
+import { useState, useEffect, useCallback } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+import { motion, AnimatePresence } from "framer-motion"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import CourseQuiz from "@/components/CourseQuiz"
 import {
   CheckCircle,
   Clock,
@@ -29,29 +41,29 @@ import {
   PersonStanding,
   Stethoscope,
   Palette,
-} from "lucide-react";
+} from "lucide-react"
 import {
   PieChart,
   Pie,
   Cell,
   Legend,
   Tooltip,
-  ResponsiveContainer
-} from "recharts";
+  ResponsiveContainer,
+} from "recharts"
 
 // --- NEW CONSTANTS FOR PIE CHART ---
-const PIE_COLORS: string[] = ["#3B82F6", "#8B5CF6", "#10B981"]; // blue, purple, green
+const PIE_COLORS: string[] = ["#3B82F6", "#8B5CF6", "#10B981"] // blue, purple, green
 
 // --- TYPES FOR HELPER FUNCTIONS ---
 interface PieChartDataItem {
-  name: string;
-  value: number;
-  color: string;
+  name: string
+  value: number
+  color: string
 }
 
 interface StrengthsWeaknessesResult {
-  strengths: string[];
-  weaknesses: string[];
+  strengths: string[]
+  weaknesses: string[]
 }
 
 // --- NEW HELPER FUNCTIONS ---
@@ -60,56 +72,58 @@ const preparePieChartData = (quizResults: QuizResult[]): PieChartDataItem[] => {
     name: result.category,
     value: result.averageScore,
     color: PIE_COLORS[index % PIE_COLORS.length],
-  }));
-};
+  }))
+}
 
-const getStrengthsAndWeaknesses = (topMatch: QuizResult): StrengthsWeaknessesResult => {
+const getStrengthsAndWeaknesses = (
+  topMatch: QuizResult
+): StrengthsWeaknessesResult => {
   // Mock data - replace with actual data from your backend
   const strengths: string[] = [
     "Strong Analytical Skills",
-    "Technical Problem Solving", 
-    "Mathematical Aptitude"
-  ];
-  
+    "Technical Problem Solving",
+    "Mathematical Aptitude",
+  ]
+
   const weaknesses: string[] = [
     "Limited Creative Expression",
     "Less Interest in Theory",
-    "Minimal Biology Exposure"
-  ];
-  
-  return { strengths, weaknesses };
-};
+    "Minimal Biology Exposure",
+  ]
+
+  return { strengths, weaknesses }
+}
 
 // --- INTERFACES (unchanged) ---
 interface Question {
-  id: number;
-  question: string;
-  category: string;
+  id: number
+  question: string
+  category: string
 }
 
 interface QuizResult {
-  category: string;
-  averageScore: number;
-  total: number;
-  placementInfo: PlacementData;
+  category: string
+  averageScore: number
+  total: number
+  placementInfo: PlacementData
 }
 
 // --- CONSTANTS (unchanged) ---
 const LIKERT_OPTIONS: Array<{
-  value: string;
-  label: string;
-  emoji: string;
-  color: string;
+  value: string
+  label: string
+  emoji: string
+  color: string
 }> = [
   { value: "1", label: "Strongly Disagree", emoji: "😞", color: "bg-red-400" },
   { value: "2", label: "Disagree", emoji: "😐", color: "bg-orange-400" },
   { value: "3", label: "Neutral", emoji: "😊", color: "bg-yellow-400" },
   { value: "4", label: "Agree", emoji: "😃", color: "bg-blue-400" },
   { value: "5", label: "Strongly Agree", emoji: "🤩", color: "bg-indigo-500" },
-];
+]
 
 const StarRating = ({ rating }: { rating: number }): JSX.Element => {
-  const fullStars = Math.floor(rating);
+  const fullStars = Math.floor(rating)
   return (
     <div className="flex items-center gap-1">
       {[...Array(5)].map((_, i) => (
@@ -121,53 +135,54 @@ const StarRating = ({ rating }: { rating: number }): JSX.Element => {
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
 // --- MAIN COMPONENT (start and quiz sections unchanged) ---
 export default function CourseInterestAssessment(): JSX.Element | null {
-  const [currentStep, setCurrentStep] = useState<"start" | "quiz" | "results">("start");
-  const [questions, setQuestions] = useState<Question[]>([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<string>("");
-  const [userAnswers, setUserAnswers] = useState<number[]>([]);
-  const [quizResults, setQuizResults] = useState<QuizResult[]>([]);
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-  const [totalQuestionCount, setTotalQuestionCount] = useState<number>(0);
-
-  // All existing functions remain unchanged...
+  const [currentStep, setCurrentStep] = useState<"start" | "quiz" | "results">(
+    "start"
+  )
+  const [questions, setQuestions] = useState<Question[]>([])
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
+  const [selectedAnswer, setSelectedAnswer] = useState<string>("")
+  const [userAnswers, setUserAnswers] = useState<number[]>([])
+  const [quizResults, setQuizResults] = useState<QuizResult[]>([])
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false)
+  const [totalQuestionCount, setTotalQuestionCount] = useState<number>(0)
+  const [courseQuizOpen, setCourseQuizOpen] = useState<boolean>(false)
   const generateQuestions = useCallback((): void => {
-    const allQuestions: Question[] = [];
-    let questionId = 1;
+    const allQuestions: Question[] = []
+    let questionId = 1
 
     const storedCoursesRaw =
-      typeof window !== "undefined" ? localStorage.getItem("courses") : null;
-    let activeCategories: string[] = [];
+      typeof window !== "undefined" ? localStorage.getItem("courses") : null
+    let activeCategories: string[] = []
 
     if (storedCoursesRaw) {
       try {
-        const parsedCourses: string[] = JSON.parse(storedCoursesRaw);
+        const parsedCourses: string[] = JSON.parse(storedCoursesRaw)
         if (Array.isArray(parsedCourses) && parsedCourses.length > 0) {
-          const allProgramKeys = Object.keys(QUESTION_BANK);
+          const allProgramKeys = Object.keys(QUESTION_BANK)
           parsedCourses.forEach((courseName) => {
             const matchingKey = allProgramKeys.find((key) =>
               courseName.includes(key)
-            );
+            )
             if (matchingKey && !activeCategories.includes(matchingKey)) {
-              activeCategories.push(matchingKey);
+              activeCategories.push(matchingKey)
             }
-          });
+          })
         }
       } catch (e) {
-        console.error("Error parsing courses from localStorage", e);
+        console.error("Error parsing courses from localStorage", e)
       }
     }
 
     if (activeCategories.length === 0) {
       console.log(
         "No courses found in localStorage or failed to parse. Using all question categories as a fallback."
-      );
-      activeCategories = Object.keys(QUESTION_BANK);
+      )
+      activeCategories = Object.keys(QUESTION_BANK)
     }
 
     activeCategories.forEach((category) => {
@@ -177,128 +192,129 @@ export default function CourseInterestAssessment(): JSX.Element | null {
         id: questionId++,
         question: q.question,
         category: category,
-      }));
-      allQuestions.push(...categoryQuestions);
-    });
+      }))
+      allQuestions.push(...categoryQuestions)
+    })
 
-    const shuffled = allQuestions.sort(() => Math.random() - 0.5);
-    setQuestions(shuffled);
-    setTotalQuestionCount(shuffled.length);
-  }, []);
+    const shuffled = allQuestions.sort(() => Math.random() - 0.5)
+    setQuestions(shuffled)
+    setTotalQuestionCount(shuffled.length)
+  }, [])
 
   const startQuiz = (): void => {
-    generateQuestions();
-    setCurrentStep("quiz");
-    setCurrentQuestionIndex(0);
-    setUserAnswers([]);
-    setSelectedAnswer("");
-  };
+    generateQuestions()
+    setCurrentStep("quiz")
+    setCurrentQuestionIndex(0)
+    setUserAnswers([])
+    setSelectedAnswer("")
+  }
 
   const handleAnswerSelect = (value: string): void => {
-    setSelectedAnswer(value);
-  };
+    setSelectedAnswer(value)
+  }
 
   const handleNextQuestion = (): void => {
-    if (!selectedAnswer) return;
-    setIsTransitioning(true);
-    const newAnswers = [...userAnswers];
-    newAnswers[currentQuestionIndex] = parseInt(selectedAnswer);
-    setUserAnswers(newAnswers);
+    if (!selectedAnswer) return
+    setIsTransitioning(true)
+    const newAnswers = [...userAnswers]
+    newAnswers[currentQuestionIndex] = parseInt(selectedAnswer)
+    setUserAnswers(newAnswers)
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setSelectedAnswer("");
-        setIsTransitioning(false);
+        setCurrentQuestionIndex(currentQuestionIndex + 1)
+        setSelectedAnswer("")
+        setIsTransitioning(false)
       } else {
-        handleQuizComplete(newAnswers);
+        handleQuizComplete(newAnswers)
       }
-    }, 300);
-  };
+    }, 300)
+  }
 
   const handleQuizComplete = (answers: number[]): void => {
-    const categoryScores: { [key: string]: { total: number; count: number } } = {};
+    const categoryScores: { [key: string]: { total: number; count: number } } =
+      {}
 
-    const activeCategories = [...new Set(questions.map((q) => q.category))];
+    const activeCategories = [...new Set(questions.map((q) => q.category))]
 
     activeCategories.forEach((category) => {
-      categoryScores[category] = { total: 0, count: 0 };
-    });
+      categoryScores[category] = { total: 0, count: 0 }
+    })
 
     questions.forEach((question, index) => {
       if (categoryScores[question.category]) {
-        categoryScores[question.category].total += answers[index];
-        categoryScores[question.category].count++;
+        categoryScores[question.category].total += answers[index]
+        categoryScores[question.category].count++
       }
-    });
+    })
 
     const results: QuizResult[] = Object.entries(categoryScores).map(
       ([category, data]) => {
         const placementInfo =
-          PLACEMENT_DATA[category as keyof typeof PLACEMENT_DATA];
+          PLACEMENT_DATA[category as keyof typeof PLACEMENT_DATA]
         const averageScore =
-          data.count > 0 ? (data.total / (data.count * 5)) * 100 : 0;
+          data.count > 0 ? (data.total / (data.count * 5)) * 100 : 0
         return {
           category,
           averageScore,
           total: data.count,
           placementInfo,
-        };
+        }
       }
-    );
+    )
 
-    results.sort((a, b) => b.averageScore - a.averageScore);
-    setQuizResults(results);
-    setCurrentStep("results");
-    setIsTransitioning(false);
-  };
+    results.sort((a, b) => b.averageScore - a.averageScore)
+    setQuizResults(results)
+    setCurrentStep("results")
+    setIsTransitioning(false)
+  }
 
   const restartQuiz = (): void => {
-    setCurrentStep("start");
-    setCurrentQuestionIndex(0);
-    setSelectedAnswer("");
-    setUserAnswers([]);
-    setQuestions([]);
-    setQuizResults([]);
-    setIsTransitioning(false);
-  };
+    setCurrentStep("start")
+    setCurrentQuestionIndex(0)
+    setSelectedAnswer("")
+    setUserAnswers([])
+    setQuestions([])
+    setQuizResults([])
+    setIsTransitioning(false)
+  }
 
   useEffect(() => {
-    const storedCoursesRaw = localStorage.getItem("courses");
-    let activeCategories: string[] = [];
+    const storedCoursesRaw = localStorage.getItem("courses")
+    let activeCategories: string[] = []
 
     if (storedCoursesRaw) {
       try {
-        const parsedCourses: string[] = JSON.parse(storedCoursesRaw);
+        const parsedCourses: string[] = JSON.parse(storedCoursesRaw)
         if (Array.isArray(parsedCourses) && parsedCourses.length > 0) {
-          const allProgramKeys = Object.keys(QUESTION_BANK);
+          const allProgramKeys = Object.keys(QUESTION_BANK)
           parsedCourses.forEach((courseName) => {
             const matchingKey = allProgramKeys.find((key) =>
               courseName.includes(key)
-            );
+            )
             if (matchingKey && !activeCategories.includes(matchingKey)) {
-              activeCategories.push(matchingKey);
+              activeCategories.push(matchingKey)
             }
-          });
+          })
         }
       } catch (e) {
-        console.error("Error parsing courses from localStorage", e);
+        console.error("Error parsing courses from localStorage", e)
       }
     }
 
     if (activeCategories.length === 0) {
-      activeCategories = Object.keys(QUESTION_BANK);
+      activeCategories = Object.keys(QUESTION_BANK)
     }
 
-    let count = 0;
+    let count = 0
     activeCategories.forEach((category) => {
-      count += QUESTION_BANK[category as keyof typeof QUESTION_BANK].length;
-    });
-    setTotalQuestionCount(count);
-  }, []);
+      count += QUESTION_BANK[category as keyof typeof QUESTION_BANK].length
+    })
+    setTotalQuestionCount(count)
+  }, [])
 
   const formatPercentage = (score: number): string => {
-    return `${Math.round(score)}%`;
-  };
+    return `${Math.round(score)}%`
+  }
 
   // --- START PAGE (unchanged) ---
   if (currentStep === "start") {
@@ -398,17 +414,17 @@ export default function CourseInterestAssessment(): JSX.Element | null {
           </Card>
         </div>
       </div>
-    );
+    )
   }
 
   // --- QUIZ PAGE (unchanged) ---
   if (currentStep === "quiz") {
-    const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    const progress = ((currentQuestionIndex + 1) / questions.length) * 100
     const questionVariants = {
       initial: { opacity: 0, x: 50 },
       animate: { opacity: 1, x: 0 },
       exit: { opacity: 0, x: -50 },
-    };
+    }
 
     return (
       <div className="min-h-screen py-12 px-4 bg-gradient-to-br from-purple-50/20 via-white to-blue-50/20 flex flex-col justify-center">
@@ -520,16 +536,16 @@ export default function CourseInterestAssessment(): JSX.Element | null {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   // --- RESULTS PAGE (COMPLETELY REDESIGNED) ---
   if (currentStep === "results") {
-    if (!quizResults.length) return null;
+    if (!quizResults.length) return null
 
-    const topMatch = quizResults[0];
-    const pieChartData = preparePieChartData(quizResults);
-    const { strengths, weaknesses } = getStrengthsAndWeaknesses(topMatch);
+    const topMatch = quizResults[0]
+    const pieChartData = preparePieChartData(quizResults)
+    const { strengths, weaknesses } = getStrengthsAndWeaknesses(topMatch)
 
     const CourseIcons: { [key: string]: React.ReactNode } = {
       "Law Programmes": <Gavel className="h-7 w-7 text-[#831238]" />,
@@ -537,10 +553,14 @@ export default function CourseInterestAssessment(): JSX.Element | null {
       "Engineering Programmes": <HardHat className="h-7 w-7 text-[#831238]" />,
       "Architecture Programmes": <Home className="h-7 w-7 text-[#831238]" />,
       "Nursing Programmes": <HeartPulse className="h-7 w-7 text-[#831238]" />,
-      "Physiotherapy Programmes": <PersonStanding className="h-7 w-7 text-[#831238]" />,
+      "Physiotherapy Programmes": (
+        <PersonStanding className="h-7 w-7 text-[#831238]" />
+      ),
       "Dental Programmes": <Stethoscope className="h-7 w-7 text-[#831238]" />,
-      "Arts, Science and Humanities Programmes": <Palette className="h-7 w-7 text-[#831238]" />,
-    };
+      "Arts, Science and Humanities Programmes": (
+        <Palette className="h-7 w-7 text-[#831238]" />
+      ),
+    }
 
     return (
       <div className="min-h-screen py-12 px-4 relative">
@@ -781,7 +801,7 @@ export default function CourseInterestAssessment(): JSX.Element | null {
                 </h3>
                 <ol className="space-y-2">
                   {topMatch.placementInfo.careerOptions
-                    .slice(0, 4)
+                    .slice(0, 8)
                     .map((career, index) => (
                       <li
                         key={index}
@@ -823,6 +843,36 @@ export default function CourseInterestAssessment(): JSX.Element | null {
             </div>
           </motion.div>
 
+          {/* Course Quiz Dialog */}
+          {topMatch.category === "School of Computing" && (
+            <AlertDialog open={courseQuizOpen} onOpenChange={setCourseQuizOpen}>
+              <AlertDialogTrigger asChild>
+                <Button
+                  variant="outline"
+                  onClick={() => setCourseQuizOpen(true)}
+                  className="w-full sm:w-auto px-8 py-3 text-base font-semibold bg-blue-100 text-blue-800 border-2 border-blue-300 hover:bg-blue-200 rounded-lg mb-8"
+                >
+                  🎯 Find Your Perfect Computing Course
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent className="max-w-4xl h-[90vh] overflow-y-auto">
+                <AlertDialogHeader>
+                  <AlertDialogTitle>
+                    School of Computing Course Quiz
+                  </AlertDialogTitle>
+                  <AlertDialogDescription>
+                    Let&apos;s help you find the perfect computing course that
+                    matches your interests and aspirations.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <CourseQuiz
+                  program={topMatch.category}
+                  onCloseAction={() => setCourseQuizOpen(false)}
+                />
+              </AlertDialogContent>
+            </AlertDialog>
+          )}
+
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button
@@ -846,5 +896,5 @@ export default function CourseInterestAssessment(): JSX.Element | null {
     )
   }
 
-  return null;
+  return null
 }

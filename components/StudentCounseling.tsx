@@ -41,6 +41,7 @@ const StudentCounseling = () => {
     studentPhone: "",
     tenthMarks: "",
     twelfthMarks: "",
+    emailId: "",
     hasEntranceExam: false,
     entranceExamName: "",
     entranceExamScore: "",
@@ -151,30 +152,29 @@ const StudentCounseling = () => {
     }))
   }
 
- const handleCourseSelection = (course: string) => {
-   setFormData((prev) => {
-     // If already selected, remove it
-     if (prev.selectedCourses.includes(course)) {
-       return {
-         ...prev,
-         selectedCourses: prev.selectedCourses.filter((c) => c !== course),
-       }
-     }
+  const handleCourseSelection = (course: string) => {
+    setFormData((prev) => {
+      // If already selected, remove it
+      if (prev.selectedCourses.includes(course)) {
+        return {
+          ...prev,
+          selectedCourses: prev.selectedCourses.filter((c) => c !== course),
+        }
+      }
 
-     // Prevent selecting more than 3
-     if (prev.selectedCourses.length >= 3) {
-       alert("You can select a maximum of 3 programs.")
-       return prev
-     }
+      // Prevent selecting more than 3
+      if (prev.selectedCourses.length >= 3) {
+        alert("You can select a maximum of 3 programs.")
+        return prev
+      }
 
-     // Add the new selection
-     return {
-       ...prev,
-       selectedCourses: [...prev.selectedCourses, course],
-     }
-   })
- }
-
+      // Add the new selection
+      return {
+        ...prev,
+        selectedCourses: [...prev.selectedCourses, course],
+      }
+    })
+  }
 
   const handleSubmitInfo = () => {
     setCurrentStep("courseSelection")
@@ -191,19 +191,19 @@ const StudentCounseling = () => {
       formData.studentPhone !== "" &&
       formData.tenthMarks !== "" &&
       formData.twelfthMarks !== "" &&
+      formData.emailId !== "" &&
       formData.courseAfterTenth !== "" &&
       (!formData.hasEntranceExam ||
         (formData.entranceExamName !== "" && formData.entranceExamScore !== ""))
     )
   }
 
- const isCourseSelectionComplete = () => {
-   return (
-     formData.selectedCourses.length >= 1 &&
-     formData.selectedCourses.length <= 3
-   )
- }
-
+  const isCourseSelectionComplete = () => {
+    return (
+      formData.selectedCourses.length >= 1 &&
+      formData.selectedCourses.length <= 3
+    )
+  }
 
   const storeInfo = async () => {
     const info = {
@@ -211,6 +211,7 @@ const StudentCounseling = () => {
       studentPhone: formData.studentPhone,
       tenthMarks: formData.tenthMarks,
       twelfthMarks: formData.twelfthMarks,
+      emailId: formData.emailId,
       studentStream: formData.courseAfterTenth,
       studentPrograms: formData.selectedCourses,
     }
@@ -291,6 +292,19 @@ const StudentCounseling = () => {
                     type="number"
                     placeholder="e.g. 90"
                     value={formData.twelfthMarks}
+                    onChange={handleInputChange}
+                  />
+                </div>
+              </div>
+              <div>
+                <div className="space-y-2">
+                  <Label htmlFor="emailId">Email ID *</Label>
+                  <Input
+                    id="emailId"
+                    name="emailId"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={formData.emailId}
                     onChange={handleInputChange}
                   />
                 </div>

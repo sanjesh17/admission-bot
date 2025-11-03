@@ -1,18 +1,17 @@
-
 export interface Recruiter {
-  name: string;
-  logoUrl: string;
+  name: string
+  logoUrl: string
 }
 
 export interface PlacementData {
-  description: string;
-  duration: string;
-  eligibility: string;
-  averageSalary: string;
-  specializations: string[];
-  careerOptions: string[];
-  recruiters: Recruiter[];
-  totalQuestions: number;
+  description: string
+  duration: string
+  eligibility: string
+  averageSalary: string
+  specializations: string[]
+  careerOptions: string[]
+  recruiters: Recruiter[]
+  totalQuestions: number
 }
 
 export const QUESTION_BANK = {
@@ -341,8 +340,7 @@ export const QUESTION_BANK = {
         "I appreciate the importance of following technical specifications, safety protocols, and maintaining accurate design schematics.",
     },
   ],
-};
-
+}
 
 export const PLACEMENT_DATA: Record<string, PlacementData> = {
   "School of Computing": {
@@ -356,6 +354,9 @@ export const PLACEMENT_DATA: Record<string, PlacementData> = {
       "AI & Data Science",
       "Cybersecurity",
       "Cloud Computing",
+      "Software Engineering",
+      "Iot",
+      "Blockchain",
     ],
     careerOptions: [
       "Software Developer",
@@ -363,6 +364,9 @@ export const PLACEMENT_DATA: Record<string, PlacementData> = {
       "Data Scientist",
       "DevOps Engineer",
       "AI/ML Engineer",
+      "Full Stack Developer",
+      "Cybersecurity Analyst",
+      "Product Manager",
     ],
     recruiters: [
       { name: "Microsoft", logoUrl: "https://logo.clearbit.com/microsoft.com" },
@@ -520,7 +524,10 @@ export const PLACEMENT_DATA: Record<string, PlacementData> = {
         name: "Apollo Hospitals",
         logoUrl: "https://logo.clearbit.com/apollohospitals.com",
       },
-      { name: "Fortis Healthcare", logoUrl: "https://logo.clearbit.com/fortishealthcare.com" },
+      {
+        name: "Fortis Healthcare",
+        logoUrl: "https://logo.clearbit.com/fortishealthcare.com",
+      },
     ],
     totalQuestions: 6,
   },
@@ -596,7 +603,10 @@ export const PLACEMENT_DATA: Record<string, PlacementData> = {
         name: "J Sagar Associates",
         logoUrl: "https://logo.clearbit.com/jsalaw.com",
       },
-      { name: "Cyril Amarchand Mangaldas", logoUrl: "https://logo.clearbit.com/cyrilshroff.com" },
+      {
+        name: "Cyril Amarchand Mangaldas",
+        logoUrl: "https://logo.clearbit.com/cyrilshroff.com",
+      },
     ],
     totalQuestions: 6,
   },
@@ -635,83 +645,178 @@ export const PLACEMENT_DATA: Record<string, PlacementData> = {
     totalQuestions: 6,
   },
   "School of Management Studies": {
-    description: "Develop leadership skills and business acumen to excel in the corporate world with our dynamic management programs.",
+    description:
+      "Develop leadership skills and business acumen to excel in the corporate world with our dynamic management programs.",
     duration: "3 Years (BBA) / 2 Years (MBA)",
     eligibility: "10+2 for BBA / Graduation for MBA",
     averageSalary: "₹6-15 LPA",
-    specializations: ["Marketing", "Finance", "Human Resources", "Operations", "Business Analytics"],
-    careerOptions: ["Management Consultant", "Brand Manager", "Financial Analyst", "HR Manager", "Supply Chain Manager"],
+    specializations: [
+      "Marketing",
+      "Finance",
+      "Human Resources",
+      "Operations",
+      "Business Analytics",
+    ],
+    careerOptions: [
+      "Management Consultant",
+      "Brand Manager",
+      "Financial Analyst",
+      "HR Manager",
+      "Supply Chain Manager",
+    ],
     recruiters: [
-        { name: "Deloitte", logoUrl: "https://logo.clearbit.com/deloitte.com" },
-        { name: "KPMG", logoUrl: "https://logo.clearbit.com/kpmg.com" },
-        { name: "Procter & Gamble", logoUrl: "https://logo.clearbit.com/pg.com" },
-        { name: "HDFC Bank", logoUrl: "https://logo.clearbit.com/hdfcbank.com" },
-        { name: "Amazon", logoUrl: "https://logo.clearbit.com/amazon.com" },
+      { name: "Deloitte", logoUrl: "https://logo.clearbit.com/deloitte.com" },
+      { name: "KPMG", logoUrl: "https://logo.clearbit.com/kpmg.com" },
+      { name: "Procter & Gamble", logoUrl: "https://logo.clearbit.com/pg.com" },
+      { name: "HDFC Bank", logoUrl: "https://logo.clearbit.com/hdfcbank.com" },
+      { name: "Amazon", logoUrl: "https://logo.clearbit.com/amazon.com" },
     ],
     totalQuestions: 6,
   },
   "School of Allied Health Sciences": {
-    description: "Train in critical healthcare support roles, from diagnostics to therapeutic care, in a state-of-the-art learning environment.",
+    description:
+      "Train in critical healthcare support roles, from diagnostics to therapeutic care, in a state-of-the-art learning environment.",
     duration: "3-4 Years (B.Sc.)",
     eligibility: "10+2 with PCB",
     averageSalary: "₹3-6 LPA",
-    specializations: ["Medical Lab Technology", "Radiography & Imaging", "Optometry", "Anesthesia Technology", "Cardiac Care"],
-    careerOptions: ["Lab Technologist", "Radiographer", "Optometrist", "Physician Assistant", "Cardiac Care Technician"],
+    specializations: [
+      "Medical Lab Technology",
+      "Radiography & Imaging",
+      "Optometry",
+      "Anesthesia Technology",
+      "Cardiac Care",
+    ],
+    careerOptions: [
+      "Lab Technologist",
+      "Radiographer",
+      "Optometrist",
+      "Physician Assistant",
+      "Cardiac Care Technician",
+    ],
     recruiters: [
-        { name: "Dr. Lal PathLabs", logoUrl: "https://logo.clearbit.com/lalpathlabs.com" },
-        { name: "Thyrocare", logoUrl: "https://logo.clearbit.com/thyrocare.com" },
-        { name: "Lenskart", logoUrl: "https://logo.clearbit.com/lenskart.com" },
-        { name: "Apollo Hospitals", logoUrl: "https://logo.clearbit.com/apollohospitals.com" },
-        { name: "Fortis Healthcare", logoUrl: "https://logo.clearbit.com/fortishealthcare.com" },
+      {
+        name: "Dr. Lal PathLabs",
+        logoUrl: "https://logo.clearbit.com/lalpathlabs.com",
+      },
+      { name: "Thyrocare", logoUrl: "https://logo.clearbit.com/thyrocare.com" },
+      { name: "Lenskart", logoUrl: "https://logo.clearbit.com/lenskart.com" },
+      {
+        name: "Apollo Hospitals",
+        logoUrl: "https://logo.clearbit.com/apollohospitals.com",
+      },
+      {
+        name: "Fortis Healthcare",
+        logoUrl: "https://logo.clearbit.com/fortishealthcare.com",
+      },
     ],
     totalQuestions: 6,
   },
   "School of Bio and Chemical Engineering": {
-    description: "Integrate principles of biology and chemistry with engineering to design innovative solutions in pharma, energy, and materials.",
+    description:
+      "Integrate principles of biology and chemistry with engineering to design innovative solutions in pharma, energy, and materials.",
     duration: "4 Years (B.Tech)",
     eligibility: "10+2 with PCM/B",
     averageSalary: "₹4-9 LPA",
-    specializations: ["Bioprocess Engineering", "Biomaterials", "Chemical Process Technology", "Environmental Engineering", "Food Technology"],
-    careerOptions: ["Bioprocess Engineer", "R&D Scientist", "Chemical Engineer", "Environmental Consultant", "Food Technologist"],
+    specializations: [
+      "Bioprocess Engineering",
+      "Biomaterials",
+      "Chemical Process Technology",
+      "Environmental Engineering",
+      "Food Technology",
+    ],
+    careerOptions: [
+      "Bioprocess Engineer",
+      "R&D Scientist",
+      "Chemical Engineer",
+      "Environmental Consultant",
+      "Food Technologist",
+    ],
     recruiters: [
-        { name: "Biocon", logoUrl: "https://logo.clearbit.com/biocon.com" },
-        { name: "Reliance Industries", logoUrl: "https://logo.clearbit.com/ril.com" },
-        { name: "BASF", logoUrl: "https://logo.clearbit.com/basf.com" },
-        { name: "Nestle", logoUrl: "https://logo.clearbit.com/nestle.com" },
-        { name: "Dr. Reddy's", logoUrl: "https://logo.clearbit.com/drreddys.com" },
+      { name: "Biocon", logoUrl: "https://logo.clearbit.com/biocon.com" },
+      {
+        name: "Reliance Industries",
+        logoUrl: "https://logo.clearbit.com/ril.com",
+      },
+      { name: "BASF", logoUrl: "https://logo.clearbit.com/basf.com" },
+      { name: "Nestle", logoUrl: "https://logo.clearbit.com/nestle.com" },
+      {
+        name: "Dr. Reddy's",
+        logoUrl: "https://logo.clearbit.com/drreddys.com",
+      },
     ],
     totalQuestions: 6,
   },
   "School of Mechanical": {
-    description: "Master the design, analysis, and manufacturing of mechanical systems, from heavy machinery to advanced robotics.",
+    description:
+      "Master the design, analysis, and manufacturing of mechanical systems, from heavy machinery to advanced robotics.",
     duration: "4 Years (B.E / B.Tech)",
     eligibility: "10+2 with Physics, Chemistry, Maths",
     averageSalary: "₹4-10 LPA",
-    specializations: ["Automobile Engineering", "Robotics & Automation", "Thermodynamics", "Industrial Production", "Mechatronics"],
-    careerOptions: ["Mechanical Engineer", "Automotive Engineer", "Design Engineer", "Production Manager", "Robotics Engineer"],
+    specializations: [
+      "Automobile Engineering",
+      "Robotics & Automation",
+      "Thermodynamics",
+      "Industrial Production",
+      "Mechatronics",
+    ],
+    careerOptions: [
+      "Mechanical Engineer",
+      "Automotive Engineer",
+      "Design Engineer",
+      "Production Manager",
+      "Robotics Engineer",
+    ],
     recruiters: [
-        { name: "Tata Motors", logoUrl: "https://logo.clearbit.com/tatamotors.com" },
-        { name: "Mahindra & Mahindra", logoUrl: "https://logo.clearbit.com/mahindra.com" },
-        { name: "Larsen & Toubro", logoUrl: "https://logo.clearbit.com/larsentoubro.com" },
-        { name: "Siemens", logoUrl: "https://logo.clearbit.com/siemens.com" },
-        { name: "Maruti Suzuki", logoUrl: "https://logo.clearbit.com/marutisuzuki.com" },
+      {
+        name: "Tata Motors",
+        logoUrl: "https://logo.clearbit.com/tatamotors.com",
+      },
+      {
+        name: "Mahindra & Mahindra",
+        logoUrl: "https://logo.clearbit.com/mahindra.com",
+      },
+      {
+        name: "Larsen & Toubro",
+        logoUrl: "https://logo.clearbit.com/larsentoubro.com",
+      },
+      { name: "Siemens", logoUrl: "https://logo.clearbit.com/siemens.com" },
+      {
+        name: "Maruti Suzuki",
+        logoUrl: "https://logo.clearbit.com/marutisuzuki.com",
+      },
     ],
     totalQuestions: 6,
   },
   "School of Electrical and Electronics": {
-    description: "Dive into the world of circuits, power systems, and electronics to power the future of technology and communication.",
+    description:
+      "Dive into the world of circuits, power systems, and electronics to power the future of technology and communication.",
     duration: "4 Years (B.E / B.Tech)",
     eligibility: "10+2 with Physics, Chemistry, Maths",
     averageSalary: "₹4-11 LPA",
-    specializations: ["Power Systems", "VLSI Design", "Embedded Systems", "Telecommunications", "Signal Processing"],
-    careerOptions: ["Electrical Engineer", "Electronics Engineer", "Control Systems Engineer", "Telecom Engineer", "Hardware Engineer"],
+    specializations: [
+      "Power Systems",
+      "VLSI Design",
+      "Embedded Systems",
+      "Telecommunications",
+      "Signal Processing",
+    ],
+    careerOptions: [
+      "Electrical Engineer",
+      "Electronics Engineer",
+      "Control Systems Engineer",
+      "Telecom Engineer",
+      "Hardware Engineer",
+    ],
     recruiters: [
-        { name: "Intel", logoUrl: "https://logo.clearbit.com/intel.com" },
-        { name: "Qualcomm", logoUrl: "https://logo.clearbit.com/qualcomm.com" },
-        { name: "Bosch", logoUrl: "https://logo.clearbit.com/bosch.com" },
-        { name: "NTPC Limited", logoUrl: "https://logo.clearbit.com/ntpc.co.in" },
-        { name: "Schneider Electric", logoUrl: "https://logo.clearbit.com/se.com" },
+      { name: "Intel", logoUrl: "https://logo.clearbit.com/intel.com" },
+      { name: "Qualcomm", logoUrl: "https://logo.clearbit.com/qualcomm.com" },
+      { name: "Bosch", logoUrl: "https://logo.clearbit.com/bosch.com" },
+      { name: "NTPC Limited", logoUrl: "https://logo.clearbit.com/ntpc.co.in" },
+      {
+        name: "Schneider Electric",
+        logoUrl: "https://logo.clearbit.com/se.com",
+      },
     ],
     totalQuestions: 6,
   },
-};
+}

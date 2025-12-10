@@ -337,7 +337,11 @@ export default function CourseQuiz({
                     <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                       {questions[currentQuestionIndex]?.question}
                     </h3>
-                    {/* Category intentionally hidden to avoid biasing the student */}
+                    {questions[currentQuestionIndex]?.category && (
+                      <p className="text-sm text-gray-500">
+                        Category: {questions[currentQuestionIndex]?.category}
+                      </p>
+                    )}
                   </div>
 
                   {questions[currentQuestionIndex]?.type === "behavioral" ? (

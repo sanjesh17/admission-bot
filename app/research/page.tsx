@@ -464,9 +464,7 @@ export default function CourseInterestAssessment(): JSX.Element | null {
                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight">
                       {questions[currentQuestionIndex]?.question}
                     </h2>
-                    <p className="text-sm text-gray-500 mt-2">
-                      Category: {questions[currentQuestionIndex]?.category}
-                    </p>
+                    
                   </div>
                   <RadioGroup
                     value={selectedAnswer}
